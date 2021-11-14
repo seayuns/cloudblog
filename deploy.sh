@@ -7,6 +7,7 @@ hugo -t seayun
 
 # Go To Public folder
 cd public
+
 # Add changes to git.
 git add .
 

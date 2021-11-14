@@ -21,9 +21,9 @@ home = ["HTML", "RSS", "Algolia"]
 [params]
   header_image = "img/sea.png"
   SEOTitle = "Seayuns 博客 | Seayuns Blog"
-  description = "描述"
+  description = "Gopher"
   keyword = "Cepher, Gopher, 云存储, 云原生, Kubernetes"
-  slogan = ""
+  slogan = "Show Your Code"
 
   image_404 = "img/404-bg.jpg"
   title_404 = "你来到了没有知识的荒原 :("
@@ -104,15 +104,21 @@ home = ["HTML", "RSS", "Algolia"]
   title = "unsplash"
   href = "https://unsplash.com"
   
+  #[[params.addtional_menus]]
+  #title =  "书籍"
+  #href =  "/books/"
+
+  #[[params.addtional_menus]]
+  #title =  "日积月累"
+  #href =  "/archive/"
+  
   [[params.addtional_menus]]
-  title =  "书籍"
-  href =  "/top/books/"
-  [[params.addtional_menus]]
-  title =  "日积月累"
-  href =  "/top/archive/"
+  title =  "云招聘"
+  href =  "/jd/"
+
   [[params.addtional_menus]]
   title =  "关于博主"
-  href =  "/top/about/"
+  href =  "/about/"
 
 [outputFormats.Algolia]
 baseName = "algolia"

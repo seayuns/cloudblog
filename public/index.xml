@@ -9,10 +9,10 @@
     <lastBuildDate>Mon, 16 Nov 2020 08:26:14 +0800</lastBuildDate><atom:link href="http://seayuns.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>云招聘</title>
-      <link>http://seayuns.github.io/dynamic/jd/</link>
+      <link>http://seayuns.github.io/jd/</link>
       <pubDate>Wed, 12 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://seayuns.github.io/dynamic/jd/</guid>
+      <guid>http://seayuns.github.io/jd/</guid>
       <description></description>
     </item>
     
@@ -72,10 +72,10 @@ MX 记录 邮件交换记录。用于将以该域名为结尾的电子邮件指�
     
     <item>
       <title>关于博主</title>
-      <link>http://seayuns.github.io/about/about/</link>
+      <link>http://seayuns.github.io/about/</link>
       <pubDate>Sat, 12 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://seayuns.github.io/about/about/</guid>
+      <guid>http://seayuns.github.io/about/</guid>
       <description>@import url(&#39;https://fonts.googleapis.com/css?family=Katibeh&amp;display=swap&#39;); .about-info { display: flex; justify-content: space-between; align-items: flex-start; } .about-info-left li { list-style-type: none; } .about-info-right { margin: .5em 1.25em; } .about-info-right img { width: 130px; } .about-info-right .left-ear, .about-info-right .left-hand, .about-info-right .right-ear, .about-info-right .right-hand { display: none; } @media only screen and (min-device-width: 320px) and (max-device-width: 480px) { .about-info { flex-direction: column-reverse; align-items: center; } .about-info-right { margin: auto auto 2em; display: flex; flex-direction: row; justify-content: center; align-items: center; } .</description>
     </item>
     
