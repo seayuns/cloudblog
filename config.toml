@@ -43,8 +43,9 @@ home = ["HTML", "RSS", "Algolia"]
   # Sidebar settings
   sidebar_about_description = "Software Developer"
   sidebar_avatar = "img/seayuns.png"      # use absolute URL, seeing it's used in both `/` and `/about/`
-  featured_tags = true 
-  featured_condition_size = 1 
+  
+  featured_tags = true
+  featured_condition_size = 2
 
   # Baidu Analytics
   #ba_track_id = ""
@@ -58,9 +59,9 @@ home = ["HTML", "RSS", "Algolia"]
   #reward = false 
   # reward_guide = "如果这篇文章对你有用,请随意打赏" 
 
-  #friends = true
-  #bookmarks = false
-  #about_me = true
+  friends = true
+  bookmarks = false
+  about_me = true
 
   # Include any custom CSS and/or JS files, url or relative to /static folder
   #custom_css = ["css/lightbox.css", "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css", "css/main.css"]
