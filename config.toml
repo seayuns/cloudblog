@@ -2,15 +2,18 @@
 # URL
 baseURL = 'http://seayuns.github.io'
 theme = "seayun"
-#languageCode = 'en-us'
-languageCode = "zh-cn"
+languageCode = 'en-us'
+#languageCode = "zh-cn"
 title = 'SeaYuns Space'
+
 # Enable comments by entering your Disqus shortname
-disqusShortname = ""
-googleAnalytics = ""
+#disqusShortname = ""
+#googleAnalytics = ""
+
 preserveTaxonomyNames = true
 paginate = 5 #frontpage pagination
-hasCJKLanguage = true
+hasCJKLanguage = false
+
 
 [outputs]
 home = ["HTML", "RSS", "Algolia"]
@@ -38,9 +41,8 @@ home = ["HTML", "RSS", "Algolia"]
   algolia_indexName = ""
   algolia_apiKey = ""
 
-
   # Sidebar settings
-  sidebar_about_description = "Software Developer, Open Source Enthusiast and Life Adventurer"
+  sidebar_about_description = "Software Developer"
   #sidebar_avatar = "img/avatar-zhaohuabing.jpg"      # use absolute URL, seeing it's used in both `/` and `/about/`
   sidebar_avatar = "img/zhaohuabing.png"      # use absolute URL, seeing it's used in both `/` and `/about/`
 
@@ -48,20 +50,20 @@ home = ["HTML", "RSS", "Algolia"]
   featured_condition_size = 1 
 
   # Baidu Analytics
-  ba_track_id = ""
+  #ba_track_id = ""
   
   # We need a proxy to access Disqus api in China
   # Follow https://github.com/zhaohuabing/disqus-php-api to set up your own disqus proxy
-  disqus_proxy = ""
-  disqus_site = ""
+  #disqus_proxy = ""
+  #disqus_site = ""
 
   #Enable wechat pay & alipay to allow readers send reward money if they like the articles 
-  reward = false 
+  #reward = false 
   # reward_guide = "如果这篇文章对你有用,请随意打赏" 
 
-  friends = true
-  bookmarks = false
-  about_me = true
+  #friends = true
+  # bookmarks = false
+  #  about_me = true
 
   # Include any custom CSS and/or JS files, url or relative to /static folder
   #custom_css = ["css/lightbox.css", "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css", "css/main.css"]
@@ -69,15 +71,15 @@ home = ["HTML", "RSS", "Algolia"]
 
   [params.social]
   rss            = true 
-  email          = "youremail@gmail.com"
+  #email          = "youremail@gmail.com"
   #facebook      = "full profile url in facebook"
   #googleplus    = "full profile url in googleplus"
   #twitter       = "full profile url in twitter"
-  linkedin       = "https://www.linkedin.com/in/yourlinkedinid"
-  stackoverflow  = "https://stackoverflow.com/users/yourstackoverflowid"
+  #linkedin       = "https://www.linkedin.com/in/yourlinkedinid"
+  #stackoverflow  = "https://stackoverflow.com/users/yourstackoverflowid"
   #instagram     = "full profile url in instagram"
   github         = "https://github.com/yourgithub"
-  wechat         = "your wechat qr code image"
+  #wechat         = "your wechat qr code image"
 #  medium         = "full profile url in medium"
   #pinterest     = "full profile url in pinterest"
   #reddit        = "full profile url in reddit"
@@ -88,9 +90,7 @@ home = ["HTML", "RSS", "Algolia"]
   #git           = "full profile url for git user"
   
   [[params.friend_link]]
-  title = "Linda的博客"
-  href =  "https://zhaozhihan.com"
-
+  
   [[params.bookmark_link]]
   title =  "Martin Fowler"
   href =  "https://martinfowler.com"
