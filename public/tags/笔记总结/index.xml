@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>笔记总结 on SeaYuns Space</title>
+    <link>http://seayuns.github.io/tags/%E7%AC%94%E8%AE%B0%E6%80%BB%E7%BB%93/</link>
+    <description>Recent content in 笔记总结 on SeaYuns Space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 29 Oct 2019 10:22:34 +0800</lastBuildDate><atom:link href="http://seayuns.github.io/tags/%E7%AC%94%E8%AE%B0%E6%80%BB%E7%BB%93/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Golang 类型定义总结手册| 面试最基础</title>
+      <link>http://seayuns.github.io/post/2019/20191029/</link>
+      <pubDate>Tue, 29 Oct 2019 10:22:34 +0800</pubDate>
+      
+      <guid>http://seayuns.github.io/post/2019/20191029/</guid>
+      <description>变量 var  关键字是 var ，定义后须被调用 支持多个同时定义 支持使用 := 缺省定义  变量定义（声明） //使用var 关键字 进行变量定义 ： var + 变量名 + 变量类型 //Var name type var aa int = 10 //var name 省略类型 var aa = 10 // 多个进行定义,也可省略类型 var Mon, Tues, Wed, Thur, Fri, Sat, Sun int var ( Monday int Tuesday int Wednesday int Thursday int Friday int Saturday int Sunday int ) // 使用 := 快捷定义，但&amp;#34;:=&amp;#34; 结构不能在函数外使用  var aa := 10 //多个定义  aa, bb ：=10, &amp;#39;10&amp;#39; //声明但可不使用  aa,_ := 10, &amp;#39;10&amp;#39; 变量调用 //变量调用分为 局部变量 和 全局变量 package main //import import ( &amp;#34;fmt&amp;#34; ) //全局变量定义 aa ss var ( aa = 3 ss = &amp;#34;kkk&amp;#34; ) //局部变量定义 func variableZeroValue() { var a int var s string //fmt.</description>
+    </item>
+    
+  </channel>
+</rss>

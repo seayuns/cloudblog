@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>共识算法 on SeaYuns Space</title>
+    <link>http://seayuns.github.io/tags/%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 共识算法 on SeaYuns Space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 18 Feb 2020 19:34:26 +0800</lastBuildDate><atom:link href="http://seayuns.github.io/tags/%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>phxpaxos 项目的演示和实验</title>
+      <link>http://seayuns.github.io/post/2020/20200218/</link>
+      <pubDate>Tue, 18 Feb 2020 19:34:26 +0800</pubDate>
+      
+      <guid>http://seayuns.github.io/post/2020/20200218/</guid>
+      <description>linux环境配置 helloworld@Vostro:~/Downloads/automake-1.14$ uname -a Linux Vostro 5.3.0-40-generic #32~18.04.1-Ubuntu SMP Mon Feb 3 14:05:59 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux helloworld@Vostro:~$ cat /etc/lsb-release DISTRIB_ID=Ubuntu DISTRIB_RELEASE=18.04 DISTRIB_CODENAME=bionic DISTRIB_DESCRIPTION=&amp;#34;Ubuntu 18.04.4 LTS&amp;#34; 下载 phpaxos 源码 git clone https://github.com/Tencent/phxpaxos.git --recursive 下载过程中, 可能会报这样的错, 在运行git clone命令时很容易出现这个错误，这是下载的包太大，网速慢超时报错。
+git clone https://github.com/Tencent/phxpaxos.git --recursive ... git clone error RPC failed:curl 56 GnuTLS recv error (-54):Error in the pull function fatar: The remote end hung up unexpectedly fatal : early EOF fatal : index-pack failed .</description>
+    </item>
+    
+  </channel>
+</rss>

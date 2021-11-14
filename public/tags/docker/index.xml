@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>“Docker” on SeaYuns Space</title>
+    <link>http://seayuns.github.io/tags/docker/</link>
+    <description>Recent content in “Docker” on SeaYuns Space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 29 Oct 2019 12:47:49 +0800</lastBuildDate><atom:link href="http://seayuns.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Forsaken Mail创建临时邮箱系统| 手把手教程</title>
+      <link>http://seayuns.github.io/post/2019/20191030/</link>
+      <pubDate>Tue, 29 Oct 2019 12:47:49 +0800</pubDate>
+      
+      <guid>http://seayuns.github.io/post/2019/20191030/</guid>
+      <description>场景需求  不需要长时间使用的邮箱 需要大量创建临时邮箱 使用匿名邮箱  环境说明   ** Forsaken Mail是一个临时邮箱系统，可以供任何人接受邮件，即收即毁，支持自定义邮箱地址前缀，这里就说下Docker和NPM`两种安装教程，任选一种即可，有兴趣或者有需求的可以玩玩。
+  **Github地址：**https://github.com/denghongcai/forsaken-mail
+  开启25 跟3000端口  发工单开 25 跟 3000端口 宝塔面板放行25 跟 3000端口 运营商（xx云等）到安全组开启机可 国外VSP（如xx工等） 一般不用开  安装Docker环境 Docker 官网 官网安装教程
+#CentOS 6 rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm yum update -y yum -y install docker-io service docker start chkconfig docker on #CentOS 7、Debian、Ubuntu curl -sSL https://get.docker.com/ | sh systemctl start docker systemctl enable docker Docker 运行 Forsaken Mail 镜像 ​`````` docker run --name forsaken-mail -d -p 25:25 -p 3000:3000 denghongcai/forsaken-mail  注意：可能会出现端口25被占用 ##找出占用端口程序PID $ netstat -anp |grep 25 ##关闭该程序 $ kill -9 PID ## 重新运行Docker 镜像 docker start ID/name   使用 域名 代替 IP 做到前面这一步已经可以通过 VSP_IP :3000 来访问，但是不能通过 域名：3000 进行访问</description>
+    </item>
+    
+  </channel>
+</rss>
