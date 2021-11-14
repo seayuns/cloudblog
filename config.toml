@@ -1,9 +1,8 @@
 ## 博客信息设置
-# URL
 baseURL = 'http://seayuns.github.io'
 theme = "seayun"
-languageCode = 'en-us'
-#languageCode = "zh-cn"
+#languageCode = 'en-us'
+languageCode = "zh-cn"
 title = 'SeaYuns Space'
 
 # Enable comments by entering your Disqus shortname
@@ -20,9 +19,9 @@ home = ["HTML", "RSS", "Algolia"]
 
 
 [params]
-  header_image = "img/home-bg-jeep.jpg"
+  header_image = "img/sea.png"
   SEOTitle = "Seayuns 博客 | Seayuns Blog"
-  description = ""
+  description = "描述"
   keyword = "Cepher, Gopher, 云存储, 云原生, Kubernetes"
   slogan = ""
 
@@ -36,16 +35,14 @@ home = ["HTML", "RSS", "Algolia"]
   leancloud_app_key = ""
 
   # algolia site search
-  algolia_search = true
-  algolia_appId = ""
-  algolia_indexName = ""
-  algolia_apiKey = ""
+  #algolia_search = false
+  #algolia_appId = ""
+  #algolia_indexName = ""
+  #algolia_apiKey = ""
 
   # Sidebar settings
   sidebar_about_description = "Software Developer"
-  #sidebar_avatar = "img/avatar-zhaohuabing.jpg"      # use absolute URL, seeing it's used in both `/` and `/about/`
-  sidebar_avatar = "img/zhaohuabing.png"      # use absolute URL, seeing it's used in both `/` and `/about/`
-
+  sidebar_avatar = "img/seayuns.png"      # use absolute URL, seeing it's used in both `/` and `/about/`
   featured_tags = true 
   featured_condition_size = 1 
 
@@ -62,8 +59,8 @@ home = ["HTML", "RSS", "Algolia"]
   # reward_guide = "如果这篇文章对你有用,请随意打赏" 
 
   #friends = true
-  # bookmarks = false
-  #  about_me = true
+  #bookmarks = false
+  #about_me = true
 
   # Include any custom CSS and/or JS files, url or relative to /static folder
   #custom_css = ["css/lightbox.css", "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css", "css/main.css"]
@@ -78,7 +75,7 @@ home = ["HTML", "RSS", "Algolia"]
   #linkedin       = "https://www.linkedin.com/in/yourlinkedinid"
   #stackoverflow  = "https://stackoverflow.com/users/yourstackoverflowid"
   #instagram     = "full profile url in instagram"
-  github         = "https://github.com/yourgithub"
+  github         = "https://github.com/seayuns"
   #wechat         = "your wechat qr code image"
 #  medium         = "full profile url in medium"
   #pinterest     = "full profile url in pinterest"
@@ -91,6 +88,9 @@ home = ["HTML", "RSS", "Algolia"]
   
   [[params.friend_link]]
   
+
+
+
   [[params.bookmark_link]]
   title =  "Martin Fowler"
   href =  "https://martinfowler.com"
@@ -105,13 +105,13 @@ home = ["HTML", "RSS", "Algolia"]
   href = "https://unsplash.com"
   
   [[params.addtional_menus]]
-  title =  "BOOKS"
+  title =  "书籍"
   href =  "/top/books/"
   [[params.addtional_menus]]
-  title =  "ARCHIVE"
+  title =  "日积月累"
   href =  "/top/archive/"
   [[params.addtional_menus]]
-  title =  "ABOUT"
+  title =  "关于博主"
   href =  "/top/about/"
 
 [outputFormats.Algolia]
