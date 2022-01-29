@@ -23,7 +23,7 @@ home = ["HTML", "RSS", "Algolia"]
   SEOTitle = "Seayuns 博客 | Seayuns Blog"
   description = "Gopher"
   keyword = "Cepher, Gopher, 云存储, 云原生, Kubernetes"
-  slogan = "Show Your Code"
+  slogan = "Traveling in the sea, looking up at the white clouds"
 
   image_404 = "img/404-bg.jpg"
   title_404 = "你来到了没有知识的荒原 :("
