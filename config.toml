@@ -1,7 +1,6 @@
 ## 博客信息设置
 baseURL = 'http://seayuns.github.io'
 theme = "seayun"
-#languageCode = 'en-us'
 languageCode = "zh-cn"
 title = 'SeaYuns Space'
 
@@ -41,7 +40,7 @@ home = ["HTML", "RSS", "Algolia"]
   algolia_apiKey = "01916a6300cce2f431bdb54902688bb5"
 
   # Sidebar settings
-  sidebar_about_description = "Software Developer"
+  sidebar_about_description = "Software Developer;"
   sidebar_avatar = "img/seayuns.png"      # use absolute URL, seeing it's used in both `/` and `/about/`
   
   featured_tags = true
@@ -57,7 +56,7 @@ home = ["HTML", "RSS", "Algolia"]
 
   #Enable wechat pay & alipay to allow readers send reward money if they like the articles 
   #reward = false 
-  # reward_guide = "如果这篇文章对你有用,请随意打赏" 
+  #reward_guide = "如果这篇文章对你有用,请随意打赏" 
 
   friends = true
   bookmarks = false
@@ -69,7 +68,7 @@ home = ["HTML", "RSS", "Algolia"]
 
   [params.social]
   rss            = true 
-  #email          = "youremail@gmail.com"
+  email          = "seayuns@163.com"
   #facebook      = "full profile url in facebook"
   #googleplus    = "full profile url in googleplus"
   #twitter       = "full profile url in twitter"
@@ -88,9 +87,23 @@ home = ["HTML", "RSS", "Algolia"]
   #git           = "full profile url for git user"
   
   [[params.friend_link]]
+  title = "Wxiaote"
+  href = "https://www.cnblogs.com/wxiaote"
+  [[params.friend_link]]
+  title = "木南的博客"
+  href = "https://github.com/wnanqun"
+  [[params.friend_link]]
+  title = "面向信仰编程"
+  href="https://draveness.me/"
+  [[params.friend_link]]
+  title = "云原生实验室"
+  href="https://fuckcloudnative.io/"
+  [[params.friend_link]]
+  title = "zhangguanzhang's Blog"
+  href="https://zhangguanzhang.github.io/ "
+
   
-
-
+   
 
   [[params.bookmark_link]]
   title =  "Martin Fowler"
@@ -104,6 +117,7 @@ home = ["HTML", "RSS", "Algolia"]
   [[params.bookmark_link]]
   title = "unsplash"
   href = "https://unsplash.com"
+  
   
   #[[params.addtional_menus]]
   #title =  "书籍"
