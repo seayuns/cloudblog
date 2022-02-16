@@ -6,7 +6,23 @@
     <description>Recent content in Posts on SeaYuns Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 16 Nov 2020 08:26:14 +0800</lastBuildDate><atom:link href="http://seayuns.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Dec 2020 08:26:14 +0800</lastBuildDate><atom:link href="http://seayuns.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>archlinux 使用| 软件推荐</title>
+      <link>http://seayuns.github.io/post/2020/20201222/</link>
+      <pubDate>Tue, 22 Dec 2020 08:26:14 +0800</pubDate>
+      
+      <guid>http://seayuns.github.io/post/2020/20201222/</guid>
+      <description>笔记软件
+ Typora Obsidian  代码软件
+ VScode Goland  会议软件
+ 腾讯会议  视频播放器
+ mpv  桌面录屏
+ Obs  邮箱客户端
+ MailSpring  RSS 订阅
+ QuiteRSS  </description>
+    </item>
+    
     <item>
       <title>archlinux 入坑|如何从零安装arclinux</title>
       <link>http://seayuns.github.io/post/2020/20201116/</link>
@@ -15,19 +31,6 @@
       <guid>http://seayuns.github.io/post/2020/20201116/</guid>
       <description>安装系统之前 验证 验证安装包 $ gpg --keyserver-options auto-key-retrieve --verify archlinux-version-x86_64.iso.sig $ pacman-key -v archlinux-version-x86_64.iso.sig 设置键盘（一般不设置）  ls /usr/share/kbd/keymaps/**/*.map.gz # loadkeys de-latin1 判断机器是否是可以安装 Archlinux # ls /sys/firmware/efi/efivars //文件夹下是否有固件，有则是efi 安装前设置 网络设置 ##链接WIFI #iwctl工具 # ip link或 设备 device list station ... scanning station ... get-network # nmcli 第二个工具（nmtui）比较简单 系统分区 #分区 cfdisk 或者fdisk fdisk -l cfdisvk /dev/sda #格式化 mkfs.vfat mkfs.ext4 mkswap #挂载分区 mount /dev/sda1 /mnt mount /dev/sdb1 /mnt/root 分区推荐（来自官网）
    Mount point Partition Partition type Suggested size     [SWAP] /dev/*swap_partition* Linux swap More than 512 MiB   /mnt /dev/*root_partition* Linux Remainder of the device       Mount point Partition Partition type Suggested size     /mnt/boot or /mnt/efi /dev/*efi_system_partition* EFI system partition At least 260 MiB   [SWAP] /dev/*swap_partition* Linux swap More than 512 MiB   /mnt /dev/*root_partition* Linux x86-64 root (/) Remainder of the device    安装装机软件 pacstrap /mnt base base-devel linux linux-firmware networkmanager vim intel-ucode(amd-ucode) git 生成分区表 genfstab -U /mnt &amp;gt;&amp;gt; /mnt/etc/fstab 进入系统安装 arch-chroot /mnt/ 系统安装 语言设置 #编辑系统语言 vim /etc/locale.</description>
-    </item>
-    
-    <item>
-      <title>archlinux 日常使用软件推荐</title>
-      <link>http://seayuns.github.io/post/2021/20211212/</link>
-      <pubDate>Thu, 12 Nov 2020 08:26:14 +0800</pubDate>
-      
-      <guid>http://seayuns.github.io/post/2021/20211212/</guid>
-      <description>笔记软件
-代码软件
-视频播放器
-桌面录屏 Obs
-邮箱客户端 RSS 订阅</description>
     </item>
     
     <item>
