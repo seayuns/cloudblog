@@ -87,7 +87,7 @@ home = ["HTML", "RSS", "Algolia"]
   #git           = "full profile url for git user"
   
   [[params.friend_link]]
-  title = "Wxiaote"
+  title = "Wxiaote 的笔记 "
   href = "https://www.cnblogs.com/wxiaote"
   [[params.friend_link]]
   title = "木南的博客"
