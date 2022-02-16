@@ -12,10 +12,8 @@ preserveTaxonomyNames = true
 paginate = 5 #frontpage pagination
 hasCJKLanguage = false
 
-
 [outputs]
 home = ["HTML", "RSS", "Algolia"]
-
 
 [params]
   header_image = "img/sea.png"
@@ -102,8 +100,6 @@ home = ["HTML", "RSS", "Algolia"]
   title = "zhangguanzhang's Blog"
   href="https://zhangguanzhang.github.io/ "
 
-  
-   
 
   [[params.bookmark_link]]
   title =  "Martin Fowler"
