@@ -1,0 +1,3 @@
+[submodule "themes/seayun"]
+	path = themes/seayun
+	url = https://github.com/seayuns/seayun.git
