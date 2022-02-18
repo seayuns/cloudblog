@@ -41,8 +41,6 @@ home = ["HTML", "RSS", "Algolia"]
   sidebar_about_description = "Software Developer, Cepher, Gopher and Rustacean"
   sidebar_avatar = "img/seayuns.png"      # use absolute URL, seeing it's used in both `/` and `/about/`
   
-  featured_tags = true
-  featured_condition_size = 2
 
   # Baidu Analytics
   #ba_track_id = ""
@@ -56,9 +54,13 @@ home = ["HTML", "RSS", "Algolia"]
   #reward = false 
   #reward_guide = "如果这篇文章对你有用,请随意打赏" 
 
+  featured_tags = true
+  # featured_condition_size = 2
   friends = true
   bookmarks = false
   about_me = true
+  # categories = true
+
 
   # Include any custom CSS and/or JS files, url or relative to /static folder
   #custom_css = ["css/lightbox.css", "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css", "css/main.css"]
@@ -91,6 +93,9 @@ home = ["HTML", "RSS", "Algolia"]
   title = "木南的博客"
   href = "https://github.com/wnanqun"
   [[params.friend_link]]
+  title = "冰华"
+  href = "https://jimengkui.cn/"
+  [[params.friend_link]]
   title = "面向信仰编程"
   href="https://draveness.me/"
   [[params.friend_link]]
@@ -99,7 +104,6 @@ home = ["HTML", "RSS", "Algolia"]
   [[params.friend_link]]
   title = "zhangguanzhang's Blog"
   href="https://zhangguanzhang.github.io/ "
-
 
   [[params.bookmark_link]]
   title =  "Martin Fowler"
