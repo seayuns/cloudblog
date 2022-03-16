@@ -1,205 +1,84 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Forsaken Mail创建临时邮箱系统| 手把手教程 - SeaYuns Space</title><meta name="Description" content="Gopher"><meta property="og:title" content="Forsaken Mail创建临时邮箱系统| 手把手教程" />
+<meta property="og:description" content="场景需求  不需要长时间使用的邮箱 需要大量创建临时邮箱 使用匿名邮箱  环境说明   ** Forsaken Mail是一个临时邮箱系统，可以供任何人接受邮件，即收即毁，支持自定义邮箱地址前缀，这里就说下Docker和NPM`两种安装教程，任选一种即可，有兴趣或者有需求的可以玩玩。
+  **Github地址：**https://github.com/denghongcai/forsaken-mail
+  开启25 跟3000端口  发工单开 25 跟 3000端口 宝塔面板放行25 跟 3000端口 运营商（xx云等）到安全组开启机可 国外VSP（如xx工等） 一般不用开  安装Docker环境 Docker 官网 官网安装教程
+#CentOS 6 rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm yum update -y yum -y install docker-io service docker start chkconfig docker on #CentOS 7、Debian、Ubuntu curl -sSL https://get.docker.com/ | sh systemctl start docker systemctl enable docker Docker 运行 Forsaken Mail 镜像 ​`````` docker run --name forsaken-mail -d -p 25:25 -p 3000:3000 denghongcai/forsaken-mail 注意：可能会出现端口25被占用 ##找出占用端口程序PID $ netstat -anp |grep 25 ##关闭该程序 $ kill -9 PID ## 重新运行Docker 镜像 docker start ID/name 使用 域名 代替 IP 做到前面这一步已经可以通过 VSP_IP :3000 来访问，但是不能通过 域名：3000 进行访问" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://seayuns.github.io/post/2019/20191030/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2019-10-29T12:47:49+08:00" />
+<meta property="article:modified_time" content="2019-10-29T12:47:49+08:00" />
 
-    
-    <meta property="og:site_name" content="SeaYuns Space">
-    <meta property="og:type" content="article">
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Forsaken Mail创建临时邮箱系统| 手把手教程"/>
+<meta name="twitter:description" content="场景需求  不需要长时间使用的邮箱 需要大量创建临时邮箱 使用匿名邮箱  环境说明   ** Forsaken Mail是一个临时邮箱系统，可以供任何人接受邮件，即收即毁，支持自定义邮箱地址前缀，这里就说下Docker和NPM`两种安装教程，任选一种即可，有兴趣或者有需求的可以玩玩。
+  **Github地址：**https://github.com/denghongcai/forsaken-mail
+  开启25 跟3000端口  发工单开 25 跟 3000端口 宝塔面板放行25 跟 3000端口 运营商（xx云等）到安全组开启机可 国外VSP（如xx工等） 一般不用开  安装Docker环境 Docker 官网 官网安装教程
+#CentOS 6 rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm yum update -y yum -y install docker-io service docker start chkconfig docker on #CentOS 7、Debian、Ubuntu curl -sSL https://get.docker.com/ | sh systemctl start docker systemctl enable docker Docker 运行 Forsaken Mail 镜像 ​`````` docker run --name forsaken-mail -d -p 25:25 -p 3000:3000 denghongcai/forsaken-mail 注意：可能会出现端口25被占用 ##找出占用端口程序PID $ netstat -anp |grep 25 ##关闭该程序 $ kill -9 PID ## 重新运行Docker 镜像 docker start ID/name 使用 域名 代替 IP 做到前面这一步已经可以通过 VSP_IP :3000 来访问，但是不能通过 域名：3000 进行访问"/>
+<meta name="application-name" content="SeaYuns Space">
+<meta name="apple-mobile-web-app-title" content="SeaYuns Space"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://seayuns.github.io/post/2019/20191030/" /><link rel="prev" href="http://seayuns.github.io/post/2019/20191029/" /><link rel="next" href="http://seayuns.github.io/post/2019/20191111/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Forsaken Mail创建临时邮箱系统| 手把手教程",
+        "inLanguage": "zh-cn",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/seayuns.github.io\/post\/2019\/20191030\/"
+        },"genre": "post","keywords": "“Docker”","wordcount":  179 ,
+        "url": "http:\/\/seayuns.github.io\/post\/2019\/20191030\/","datePublished": "2019-10-29T12:47:49+08:00","dateModified": "2019-10-29T12:47:49+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Author"},"author": {
+                "@type": "Person",
+                "name": "Author"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="" header-mobile=""><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : '' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
-    
-    <meta property="og:image" content="http://seayuns.github.io/img/sea.png">
-    <meta property="twitter:image" content="http://seayuns.github.io/img/sea.png" />
-    
-
-    
-    <meta name="title" content="Forsaken Mail创建临时邮箱系统| 手把手教程" />
-    <meta property="og:title" content="Forsaken Mail创建临时邮箱系统| 手把手教程" />
-    <meta property="twitter:title" content="Forsaken Mail创建临时邮箱系统| 手把手教程" />
-    
-
-    
-    <meta name="description" content="Gopher">
-    <meta property="og:description" content="Gopher" />
-    <meta property="twitter:description" content="Gopher" />
-    
-
-    
-    <meta property="twitter:card" content="summary" />
-    
-    
-
-    <meta name="keyword"  content="Cepher, Gopher, 云存储, 云原生, Kubernetes">
-    <link rel="shortcut icon" href="/img/favicon/favicon.ico">
-
-    <title>Forsaken Mail创建临时邮箱系统| 手把手教程-Seayuns 博客 | Seayuns Blog</title>
-
-    <link rel="canonical" href="/post/2019/20191030/">
-
-    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
-
-    
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-
-    
-    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
-
-    
-    <link rel="stylesheet" href="/css/zanshang.css">
-
-    
-    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
-
-    
-    
-
-    
-    
-    <script src="/js/jquery.min.js"></script>
-
-    
-    <script src="/js/bootstrap.min.js"></script>
-
-    
-    <script src="/js/hux-blog.min.js"></script>
-
-    
-    
-
-</head>
-
-
-
-
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-
-    <div class="container-fluid">
-        
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">SeaYuns Space</a>
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="SeaYuns Space">SeaYuns Space</a>
         </div>
-
-        
-        
-        <div id="huxblog_navbar">
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/">首页</a>
-                    </li>
-                    
-                        
-                    
-                    
-		    
-                        <li><a href="/jd/">云招聘</a></li>
-                    
-                        <li><a href="/about/">关于博主</a></li>
-                    
-
-                    
-                </ul>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/jd/" title="云招聘"> 云招聘 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
             </div>
         </div>
-        
     </div>
-    
-</nav>
-<script>
-    
-    
-    
-    var $body   = document.body;
-    var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
-    var $collapse = document.querySelector('.navbar-collapse');
-
-    $toggle.addEventListener('click', handleMagic)
-    function handleMagic(e){
-        if ($navbar.className.indexOf('in') > 0) {
-        
-            $navbar.className = " ";
-            
-            setTimeout(function(){
-                
-                if($navbar.className.indexOf('in') < 0) {
-                    $collapse.style.height = "0px"
-                }
-            },400)
-        }else{
-        
-            $collapse.style.height = "auto"
-            $navbar.className += " in";
-        }
-    }
-</script>
-
-
-
-
-<style type="text/css">
-    header.intro-header {
-        background-image: url('/img/sea.png')
-    }
-</style>
-
-<header class="intro-header" >
-
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <div class="tags">
-                        
-                        <a class="tag" href="/tags/docker" title="“Docker”">
-                            “Docker”
-                        </a>
-                        
-                    </div>
-                    <h1>Forsaken Mail创建临时邮箱系统| 手把手教程</h1>
-                    <h2 class="subheading"></h2>
-                    <span class="meta">
-                        
-                            Posted by 
-                            
-                                    SeaYuns Space
-                             
-                            on 
-                            Tuesday, October 29, 2019
-                            
-                            
-                            
-                            
-                    </span>
-                </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="SeaYuns Space">SeaYuns Space</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
             </div>
         </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/jd/" title="云招聘">云招聘</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
     </div>
 </header>
-
-
-
-
-<article>
-    <div class="container">
-        <div class="row">
-
-            
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
-
-                
-                <h2 id="场景需求">场景需求</h2>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="page single special"><h1 class="single-title animated pulse faster">Forsaken Mail创建临时邮箱系统| 手把手教程</h1><div class="content" id="content"><h2 id="场景需求">场景需求</h2>
 <ul>
 <li>不需要长时间使用的邮箱</li>
 <li>需要大量创建临时邮箱</li>
@@ -211,7 +90,7 @@
 <p>**<code> </code>Forsaken Mail<code>是一个临时邮箱系统，可以供任何人接受邮件，即收即毁，支持自定义邮箱地址前缀，这里就说下</code>Docker<code>和</code>NPM`两种安装教程，任选一种即可，有兴趣或者有需求的可以玩玩。</p>
 </li>
 <li>
-<p>**Github地址：**<a href="https://github.com/denghongcai/forsaken-mail">https://github.com/denghongcai/forsaken-mail</a></p>
+<p>**Github地址：**<a href="https://github.com/denghongcai/forsaken-mail" target="_blank" rel="noopener noreffer">https://github.com/denghongcai/forsaken-mail</a></p>
 </li>
 </ul>
 <h2 id="开启25-跟3000端口">开启25 跟3000端口</h2>
@@ -222,7 +101,7 @@
 <li>国外VSP（如xx工等） 一般不用开</li>
 </ul>
 <h2 id="安装docker环境">安装Docker环境</h2>
-<p>Docker 官网 <a href="https://docs.docker.com/install/linux/docker-ce/centos/"> 官网安装教程</a></p>
+<p>Docker 官网 <a href="https://docs.docker.com/install/linux/docker-ce/centos/" target="_blank" rel="noopener noreffer"> 官网安装教程</a></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang">#CentOS <span style="color:#bd93f9">6</span>
 rpm <span style="color:#ff79c6">-</span>iUvh http:<span style="color:#6272a4">//dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 </span><span style="color:#6272a4"></span>yum update <span style="color:#ff79c6">-</span>y
@@ -236,10 +115,14 @@ curl <span style="color:#ff79c6">-</span>sSL https:<span style="color:#6272a4">/
 systemctl enable docker
 </code></pre></div><h2 id="docker-运行-forsaken-mail-镜像">Docker 运行 <strong>Forsaken Mail</strong> 镜像</h2>
 <pre tabindex="0"><code class="language-goang" data-lang="goang">​`````` docker run --name forsaken-mail -d -p 25:25 -p 3000:3000 denghongcai/forsaken-mail 
-</code></pre><p>
-  <img src="https://github.com/Wxiaote/cloudimg/blob/master/2019/20191115220815.png?raw=true" alt="image-20191115211800295">
-
-</p>
+</code></pre><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://github.com/Wxiaote/cloudimg/blob/master/2019/20191115220815.png?raw=true"
+        data-srcset="https://github.com/Wxiaote/cloudimg/blob/master/2019/20191115220815.png?raw=true, https://github.com/Wxiaote/cloudimg/blob/master/2019/20191115220815.png?raw=true 1.5x, https://github.com/Wxiaote/cloudimg/blob/master/2019/20191115220815.png?raw=true 2x"
+        data-sizes="auto"
+        alt="https://github.com/Wxiaote/cloudimg/blob/master/2019/20191115220815.png?raw=true"
+        title="image-20191115211800295" /></p>
 <h4 id="注意可能会出现端口25被占用">注意：可能会出现端口25被占用</h4>
 <pre tabindex="0"><code class="language-goalng" data-lang="goalng">##找出占用端口程序PID
 $ netstat -anp |grep 25
@@ -247,21 +130,29 @@ $ netstat -anp |grep 25
 $ kill -9 PID
 ## 重新运行Docker 镜像
 docker start ID/name
-</code></pre><p>
-  <img src="https://github.com/Wxiaote/cloudimg/blob/master/2019/20191115220831.png?raw=true" alt="image-20191115211850165">
-
-</p>
-<p>
-  <img src="https://github.com/Wxiaote/cloudimg/raw/master/2019/20191115220859.png" alt="image-20191115211908873">
-
-</p>
+</code></pre><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://github.com/Wxiaote/cloudimg/blob/master/2019/20191115220831.png?raw=true"
+        data-srcset="https://github.com/Wxiaote/cloudimg/blob/master/2019/20191115220831.png?raw=true, https://github.com/Wxiaote/cloudimg/blob/master/2019/20191115220831.png?raw=true 1.5x, https://github.com/Wxiaote/cloudimg/blob/master/2019/20191115220831.png?raw=true 2x"
+        data-sizes="auto"
+        alt="https://github.com/Wxiaote/cloudimg/blob/master/2019/20191115220831.png?raw=true"
+        title="image-20191115211850165" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://github.com/Wxiaote/cloudimg/raw/master/2019/20191115220859.png"
+        data-srcset="https://github.com/Wxiaote/cloudimg/raw/master/2019/20191115220859.png, https://github.com/Wxiaote/cloudimg/raw/master/2019/20191115220859.png 1.5x, https://github.com/Wxiaote/cloudimg/raw/master/2019/20191115220859.png 2x"
+        data-sizes="auto"
+        alt="https://github.com/Wxiaote/cloudimg/raw/master/2019/20191115220859.png"
+        title="image-20191115211908873" /></p>
 <h2 id="使用-域名-代替-ip">使用 域名 代替 IP</h2>
 <p>做到前面这一步已经可以通过  VSP_IP :3000 来访问，但是不能通过 域名：3000 进行访问</p>
 <p>此时就应该进行域名解析——登录你的域名管理。</p>
 <ul>
 <li>一级域名解析</li>
 </ul>
-<p>需要添加以下<code>2</code>条解析记录。 了解MX记录 ， A 记录可参考上一篇 <a href="https://www.cnblogs.com/xiaote/p/11856484.html">域名解析</a></p>
+<p>需要添加以下<code>2</code>条解析记录。 了解MX记录 ， A 记录可参考上一篇 <a href="https://www.cnblogs.com/xiaote/p/11856484.html" target="_blank" rel="noopener noreffer">域名解析</a></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang">#MX记录， xx.com 是你买的域名 mx 不要更改
 xx.com    MX   <span style="color:#bd93f9">10</span>     mx.xx.com
 #A记录 
@@ -291,314 +182,17 @@ echo &quot;xx.com {
 </code></pre><p><strong>3、启动Caddy</strong></p>
 <pre tabindex="0"><code class="language-goalng" data-lang="goalng">/etc/init.d/caddy start
 </code></pre><p>最后可以打开<code>https://xx.com</code>访问，使用Docker应用还是容易的。</p>
-
-
-                
-
-                <hr>
-                <ul class="pager">
-                    
-                    <li class="previous">
-                        <a href="/post/2019/20191029/" data-toggle="tooltip" data-placement="top" title="Golang 类型定义总结手册| 面试最基础">&larr;
-                            上一篇</a>
-                    </li>
-                    
-                    
-                    <li class="next">
-                        <a href="/post/2019/20191111/" data-toggle="tooltip" data-placement="top" title="域名解析 | A记录 ，CNAME，MX，NS 你懂了吗">下一篇
-                            &rarr;</a>
-                    </li>
-                    
-                </ul>
-                
-<div id="disqus-comment"></div>
-
-
-            </div>
-
-            
-            
-            <div class="
-                col-lg-2 col-lg-offset-0
-                visible-lg-block
-                sidebar-container
-                catalog-container">
-                <div class="side-catalog">
-                    <hr class="hidden-sm hidden-xs">
-                    <h5>
-                        <a class="catalog-toggle" href="#">目录</a>
-                    </h5>
-                    <ul class="catalog-body"></ul>
-                </div>
-            </div>
-            
-
-            
-            <div class="
-                col-lg-11 col-lg-offset-1
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                
-                
-                <section>
-                    <hr class="hidden-sm hidden-xs">
-                    <h5><a href="/tags/">标签/分类</a></h5>
-                    <div class="tags">
-                        
-                        
-                        
-                        <a href="/tags/archlinux" title="archlinux">
-                            archlinux
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/docker" title="docker">
-                            docker
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/golang" title="golang">
-                            golang
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/phxpaxos" title="phxpaxos">
-                            phxpaxos
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95" title="共识算法">
-                            共识算法
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/%E7%AC%94%E8%AE%B0%E6%80%BB%E7%BB%93" title="笔记总结">
-                            笔记总结
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C" title="计算机网络">
-                            计算机网络
-                        </a>
-                        
-                        
-                    </div>
-                </section>
-                
-
-                
-                
-                <section>
-                    <hr>
-                    <h5>友链</h5>
-                    <ul class="list-inline">
-                        
-                        <li><a target="_blank" href="https://www.cnblogs.com/wxiaote">Wxiaote 的笔记 </a></li>
-                        
-                        <li><a target="_blank" href="https://github.com/wnanqun">木南的博客</a></li>
-                        
-                        <li><a target="_blank" href="https://jimengkui.cn/">冰华</a></li>
-                        
-                        <li><a target="_blank" href="https://draveness.me/">面向信仰编程</a></li>
-                        
-                        <li><a target="_blank" href="https://fuckcloudnative.io/">云原生实验室</a></li>
-                        
-                        <li><a target="_blank" href="https://zhangguanzhang.github.io/%20">zhangguanzhang&#39;s Blog</a></li>
-                        
-                    </ul>
-                </section>
-                
-            </div>
+</div></div></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.89.2">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span></div>
         </div>
-    </div>
-</article>
+    </footer></div>
 
-
-
-
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                   
-                   <li>
-                       <a href='' rel="alternate" type="application/rss+xml" title="SeaYuns Space" >
-                           <span class="fa-stack fa-lg">
-                               <i class="fas fa-circle fa-stack-2x"></i>
-                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-                           </span>
-                       </a>
-                   </li>
-                   
-                    
-                    <li>
-                        <a href="mailto:seayuns@163.com">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-		    
-
-                    
-                    
-                    
-
-                    
-
-		    
-                    
-                    
-                    <li>
-                        <a target="_blank" href="https://github.com/seayuns">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-		    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-            
-            
-            
-                </ul>
-		<p class="copyright text-muted">
-                    Copyright &copy; SeaYuns Space 2022
-                    <br>
-                    Seayun Theme</a> by 
-                    <iframe
-                        style="margin-left: 2px; margin-bottom:-5px;"
-                        frameborder="0" scrolling="0" width="100px" height="20px"
-                        src="https://ghbtns.com/github-btn.html?user=seayuns&repo=seayun&type=star&count=true" >
-                    </iframe>
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-
-
-
-<script>
-    function loadAsync(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-
-
-
-
-
-
-<script>
-    
-    if($('#tag_cloud').length !== 0){
-        loadAsync("/js/jquery.tagcloud.js",function(){
-            $.fn.tagcloud.defaults = {
-                
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
-        })
-    }
-</script>
-
-
-<script>
-    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
-</script>
-
-
-
-
-
-
-
-
-
-<script type="text/javascript">
-    function generateCatalog(selector) {
-
-        
-        
-        
-        
-            _containerSelector = 'div.post-container'
-        
-
-        
-        var P = $(_containerSelector), a, n, t, l, i, c;
-        a = P.find('h1,h2,h3,h4,h5,h6');
-
-        
-        $(selector).html('')
-
-        
-        a.each(function () {
-            n = $(this).prop('tagName').toLowerCase();
-            i = "#" + $(this).prop('id');
-            t = $(this).text();
-            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
-            l = $('<li class="' + n + '_nav"></li>').append(c);
-            $(selector).append(l);
-        });
-        return true;
-    }
-
-    generateCatalog(".catalog-body");
-
-    
-    $(".catalog-toggle").click((function (e) {
-        e.preventDefault();
-        $('.side-catalog').toggleClass("fold")
-    }))
-
-    
-
-
-    loadAsync("\/js\/jquery.nav.js", function () {
-        $('.catalog-body').onePageNav({
-            currentClass: "active",
-            changeHash: !1,
-            easing: "swing",
-            filter: "",
-            scrollSpeed: 700,
-            scrollOffset: 0,
-            scrollThreshold: .2,
-            begin: null,
-            end: null,
-            scrollChange: null,
-            padding: 80
-        });
-    });
-</script>
-
-
-</body>
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

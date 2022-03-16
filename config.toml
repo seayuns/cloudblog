@@ -59,7 +59,8 @@ home = ["HTML", "RSS", "Algolia"]
   friends = true
   bookmarks = false
   about_me = true
-  # categories = true
+  categories = true
+  archive = true
 
 
   # Include any custom CSS and/or JS files, url or relative to /static folder
