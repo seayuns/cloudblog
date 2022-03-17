@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="SeaYuns Space">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="http://seayuns.github.io/img/sea.png">
+    <meta property="twitter:image" content="http://seayuns.github.io/img/sea.png" />
+    
+
+    
+    <meta name="title" content="Golang 类型定义总结手册| 面试最基础" />
+    <meta property="og:title" content="Golang 类型定义总结手册| 面试最基础" />
+    <meta property="twitter:title" content="Golang 类型定义总结手册| 面试最基础" />
+    
+
+    
+    <meta name="description" content="Gopher">
+    <meta property="og:description" content="Gopher" />
+    <meta property="twitter:description" content="Gopher" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Cepher, Gopher, 云存储, 云原生, Kubernetes">
+    <link rel="shortcut icon" href="/img/favicon/favicon.ico">
+
+    <title>Golang 类型定义总结手册| 面试最基础-Seayuns 博客 | Seayuns Blog</title>
+
+    <link rel="canonical" href="/post/2019/1029/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdn.bootcdn.net/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">SeaYuns Space</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">首页</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/%E4%BA%91%E6%8B%9B%E8%81%98">云招聘</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/about/">关于博主</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/sea.png')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/golang" title="Golang">
+                            Golang
+                        </a>
+                        
+                        <a class="tag" href="/tags/%E7%AC%94%E8%AE%B0%E6%80%BB%E7%BB%93" title="笔记总结">
+                            笔记总结
+                        </a>
+                        
+                    </div>
+                    <h1>Golang 类型定义总结手册| 面试最基础</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    SeaYuns Space
+                             
+                            on 
+                            Tuesday, January 29, 2019
+                            
+                                <span id="/post/2019/1029/" class="leancloud_visitors meta_data_item" data-flag-title="">
+    <span class="post-meta-item-icon">
+      <span class="octicon octicon-eye"></span> 
+    </span>
+    <i class="fa fa-eye"></i>
+    <span class="old-visitors-count" style="display: none;"></span>
+    <span class="leancloud-visitors-count"></span>
+</span>
+
+
+
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+
+<script>
+	AV.initialize("D1gWQvE5vPp4Yc4n9GTCq09h-gzGzoHsz", "WNer6LYjOjljHe0mG2K5AMu1");
+</script>
+
+<script type="text/javascript">
+function showTime(Counter) {
+    var query = new AV.Query(Counter);
+    var entries = [];
+    var $visitors = $(".leancloud_visitors");
+
+    $visitors.each(function() {
+        entries.push($(this).attr("id").trim());
+    });
+
+    query.containedIn('url', entries);
+    query.find()
+        .done(function(results) {
+            var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+            var OLD_COUNT_CONTAINER_REF = '.old-visitors-count';
+
+            
+            
+            
+            
+
+            for (var i = 0; i < results.length; i++) {
+                var item = results[i];
+                var url = item.get('url');
+                var time = item.get('time');
+                var element = document.getElementById(url);
+
+                $(element).find(COUNT_CONTAINER_REF).text(time);
+            }
+            for (var i = 0; i < entries.length; i++) {
+                var url = entries[i];
+                var element = document.getElementById(url);
+                var countSpan = $(element).find(COUNT_CONTAINER_REF);
+                if (countSpan.text() == '') {
+                    var oldCountSpan = $(element).find(OLD_COUNT_CONTAINER_REF).text();
+                    if(oldCountSpan!=''){
+                        countSpan.text(0+parseInt(oldCountSpan));
+                    }else{
+                        countSpan.text(0);          
+                    }
+                }
+            }
+        })
+        .fail(function(object, error) {
+            console.log("Error: " + error.code + " " + error.message);
+        });
+}
+
+function addCount(Counter) {
+    var $visitors = $(".leancloud_visitors");
+    var url = $visitors.attr('id').trim();
+    var title = $visitors.attr('data-flag-title').trim();
+    var query = new AV.Query(Counter);
+
+    query.equalTo("url", url);
+    query.find({
+        success: function(results) {
+            if (results.length > 0) {
+                var counter = results[0];
+                counter.fetchWhenSave(true);
+                counter.increment("time");
+                counter.save(null, {
+                    success: function(counter) {
+                        var $element = $(document.getElementById(url));
+                        $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                    },
+                    error: function(counter, error) {
+                        console.log('Failed to save Visitor num, with error message: ' + error.message);
+                    }
+                });
+            } else {
+                var newcounter = new Counter();
+                 
+                var acl = new AV.ACL();
+                acl.setPublicReadAccess(true);
+                acl.setPublicWriteAccess(true);
+                newcounter.setACL(acl);
+                 
+                newcounter.set("title", title);
+                newcounter.set("url", url);
+                var OLD_COUNT_CONTAINER_REF = '.old-visitors-count';
+                var $element = $(document.getElementById(url));
+                var oldCountSpan = $element.find(OLD_COUNT_CONTAINER_REF).text();
+                if(oldCountSpan!=''){
+                    newcounter.set("time", parseInt(oldCountSpan)+1);
+                }else{
+ 	                    newcounter.set("time",  1);
+                }
+                newcounter.save(null, {
+                    success: function(newcounter) {
+                        var $element = $(document.getElementById(url));
+                        $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+                    },
+                    error: function(newcounter, error) {
+                        console.log('Failed to create');
+                    }
+                });
+            }
+        },
+        error: function(error) {
+            console.log('Error:' + error.code + " " + error.message);
+        }
+    });
+}
+$(function() {
+    var Counter = AV.Object.extend("Counter");
+    
+    
+    if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+    } else {
+        showTime(Counter);
+    }
+});
+</script>
+
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h3 id="变量-var">变量 var</h3>
+<ul>
+<li>关键字是 var  ，定义后须被调用</li>
+<li>支持多个同时定义</li>
+<li>支持使用 :=  缺省定义</li>
+</ul>
+<h4 id="变量定义声明">变量定义（声明）</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#6272a4">//使用var 关键字 进行变量定义 ： var + 变量名 + 变量类型
+</span><span style="color:#6272a4">//Var name type
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> aa <span style="color:#8be9fd">int</span> = <span style="color:#bd93f9">10</span>
+<span style="color:#6272a4">//var name 省略类型
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> aa = <span style="color:#bd93f9">10</span>
+<span style="color:#6272a4">// 多个进行定义,也可省略类型
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> Mon, Tues, Wed, Thur, Fri, Sat, Sun <span style="color:#8be9fd">int</span>
+<span style="color:#8be9fd;font-style:italic">var</span> (
+    Monday    <span style="color:#8be9fd">int</span>
+    Tuesday   <span style="color:#8be9fd">int</span>
+    Wednesday <span style="color:#8be9fd">int</span>
+    Thursday  <span style="color:#8be9fd">int</span>
+    Friday    <span style="color:#8be9fd">int</span>
+    Saturday  <span style="color:#8be9fd">int</span>
+    Sunday    <span style="color:#8be9fd">int</span>
+)
+<span style="color:#6272a4">// 使用 := 快捷定义，但&#34;:=&#34; 结构不能在函数外使用
+</span><span style="color:#6272a4"></span> <span style="color:#8be9fd;font-style:italic">var</span> aa <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">10</span>
+ <span style="color:#6272a4">//多个定义
+</span><span style="color:#6272a4"></span> aa, bb ：=<span style="color:#bd93f9">10</span>, &#39;<span style="color:#bd93f9">10</span>&#39;
+ <span style="color:#6272a4">//声明但可不使用
+</span><span style="color:#6272a4"></span> aa,_ <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">10</span>, &#39;<span style="color:#bd93f9">10</span>&#39;
+</code></pre></div><h4 id="变量调用">变量调用</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#6272a4">//变量调用分为 局部变量 和 全局变量
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">package</span> main
+
+<span style="color:#6272a4">//import
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">import</span> (
+	<span style="color:#f1fa8c">&#34;fmt&#34;</span>
+)
+
+<span style="color:#6272a4">//全局变量定义 aa ss
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> (
+	aa = <span style="color:#bd93f9">3</span>
+	ss = <span style="color:#f1fa8c">&#34;kkk&#34;</span>
+)
+
+<span style="color:#6272a4">//局部变量定义
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">variableZeroValue</span>() {
+	<span style="color:#8be9fd;font-style:italic">var</span> a <span style="color:#8be9fd">int</span>
+	<span style="color:#8be9fd;font-style:italic">var</span> s <span style="color:#8be9fd">string</span>
+	<span style="color:#6272a4">//fmt.Println(a, s)
+</span><span style="color:#6272a4"></span>	fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;%d %q \n&#34;</span>, a, s)
+}
+<span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+	<span style="color:#6272a4">//fmt.Println(&#34;helloworld&#34;)
+</span><span style="color:#6272a4"></span>	<span style="color:#50fa7b">variableZeroValue</span>()
+	}
+</code></pre></div><h3 id="常量-const">常量 const</h3>
+<ul>
+<li>关键字为 const， 可不被调用</li>
+<li>枚举类型  iota</li>
+<li>常量不可改变</li>
+</ul>
+<h4 id="常量定义">常量定义</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#6272a4">//const name type
+</span><span style="color:#6272a4">//const name
+</span><span style="color:#6272a4">//:=
+</span><span style="color:#6272a4">//多常量
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">const</span>（
+aa = <span style="color:#bd93f9">1</span>
+bb =<span style="color:#bd93f9">2</span>
+）
+<span style="color:#6272a4">//使用iota， 从0开始，iota 自增被打断，须显式恢复
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">const</span> (
+		b = <span style="color:#bd93f9">1</span> <span style="color:#ff79c6">&lt;&lt;</span> (<span style="color:#bd93f9">10</span> <span style="color:#ff79c6">*</span> <span style="color:#ff79c6">iota</span>)
+		kb
+		mb
+		gb
+	)
+</code></pre></div><h4 id="常量调用">常量调用</h4>
+<ul>
+<li>常量使用与变量相似 ，故不赘述</li>
+<li>与c语言不同，常量不能通过指针进行强制更改</li>
+</ul>
+<h3 id="数组-arr">数组 arr</h3>
+<ul>
+<li>在Go语言中数组是固定长度的数据类型，它包含相同类型的连续的元素，这些元素可以是内建类型，像数字和字符串，也可以是结构类型，元素可以通过唯一的索引值访问，从0开始。</li>
+<li>使用 var 关键字</li>
+</ul>
+<h4 id="数组定义">数组定义</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#6272a4">//定义 长度是5的arr
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> arr [<span style="color:#bd93f9">5</span>]<span style="color:#8be9fd">int</span>
+<span style="color:#6272a4">//定义并初始化
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> arr [<span style="color:#bd93f9">5</span>]<span style="color:#8be9fd">int</span> = [<span style="color:#bd93f9">5</span>]<span style="color:#8be9fd">int</span>{<span style="color:#bd93f9">1</span>,<span style="color:#bd93f9">2</span>,<span style="color:#bd93f9">3</span>,<span style="color:#bd93f9">4</span>,<span style="color:#bd93f9">5</span>}
+<span style="color:#6272a4">//快速定义
+</span><span style="color:#6272a4"></span>arr ：= [<span style="color:#bd93f9">5</span>]<span style="color:#8be9fd">int</span>{<span style="color:#bd93f9">1</span>,<span style="color:#bd93f9">2</span>,<span style="color:#bd93f9">3</span>,<span style="color:#bd93f9">4</span>,<span style="color:#bd93f9">5</span>}
+<span style="color:#6272a4">//不知长度
+</span><span style="color:#6272a4"></span>arr <span style="color:#ff79c6">:=</span> [<span style="color:#ff79c6">...</span>]<span style="color:#8be9fd">int</span>{<span style="color:#bd93f9">1</span>,<span style="color:#bd93f9">2</span>,<span style="color:#bd93f9">3</span>,<span style="color:#bd93f9">4</span>}
+<span style="color:#6272a4">//部分初始化, 其他位置初始化为0
+</span><span style="color:#6272a4"></span>arr <span style="color:#ff79c6">:=</span> [<span style="color:#bd93f9">5</span>]<span style="color:#8be9fd">int</span>{<span style="color:#bd93f9">1</span>:<span style="color:#bd93f9">1</span>,<span style="color:#bd93f9">3</span>:<span style="color:#bd93f9">4</span>}
+</code></pre></div><h4 id="调用">调用</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#ff79c6">package</span> main
+<span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;fmt&#34;</span>
+
+<span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+    array <span style="color:#ff79c6">:=</span> [<span style="color:#bd93f9">2</span>]<span style="color:#8be9fd">int</span>{}
+    fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;数组长度：%d，数组容量：%d\n&#34;</span>, <span style="color:#8be9fd;font-style:italic">len</span>(array), <span style="color:#8be9fd;font-style:italic">cap</span>(array))
+}
+<span style="color:#6272a4">//数组长度：2，数组容量：2
+</span></code></pre></div><h3 id="切片-slice">切片 Slice</h3>
+<ul>
+<li>&ldquo;动态数组&rdquo; ，长度不固定，可以追加 append （name, 5）</li>
+<li>通过内部指针和相关属性应用数组片段</li>
+<li>type, len, cap 为Slice三个属性, 如果slice == nil 则len，cap均为零</li>
+</ul>
+<h4 id="定义">定义</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#6272a4">//定义一个切片，不用大小
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> name []<span style="color:#8be9fd">int</span>
+<span style="color:#6272a4">//定义并初始化
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> aa []<span style="color:#8be9fd">int</span> = []<span style="color:#8be9fd">int</span>{<span style="color:#bd93f9">1</span>,<span style="color:#bd93f9">2</span>,<span style="color:#bd93f9">3</span>}
+<span style="color:#8be9fd;font-style:italic">var</span> bb = []<span style="color:#8be9fd">int</span>{<span style="color:#bd93f9">1</span>,<span style="color:#bd93f9">2</span>,<span style="color:#bd93f9">3</span>}
+<span style="color:#6272a4">//通过内置函数make 进行定义 make (type, len, cap)
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> aa []<span style="color:#8be9fd">int</span> = <span style="color:#8be9fd;font-style:italic">make</span>([]<span style="color:#8be9fd">int</span>, <span style="color:#bd93f9">3</span>)
+<span style="color:#8be9fd;font-style:italic">var</span> aa = <span style="color:#8be9fd;font-style:italic">make</span>([]<span style="color:#8be9fd">int</span>, <span style="color:#bd93f9">3</span>)
+<span style="color:#8be9fd;font-style:italic">var</span> aa = <span style="color:#8be9fd;font-style:italic">make</span>([]<span style="color:#8be9fd">int</span>, <span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">3</span>)
+aa <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">make</span>([]<span style="color:#8be9fd">int</span>, <span style="color:#bd93f9">3</span>)
+<span style="color:#6272a4">//通过切数组得到 arr ：= [5]int{1,2,3,4,5}
+</span><span style="color:#6272a4"></span>aa <span style="color:#ff79c6">:=</span> arr[:<span style="color:#8be9fd;font-style:italic">len</span>(arr)<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>]
+</code></pre></div><h4 id="调用-1">调用</h4>
+<p>切片拷贝，使用copy() 函数 copy 在两个 slice 间复制数据，复制长度以 len 小的为准。两个 slice 可指向同一底层数组，允许元素区间重叠。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#ff79c6">package</span> main
+<span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;fmt&#34;</span>
+<span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {    
+	<span style="color:#8be9fd;font-style:italic">var</span> a = []<span style="color:#8be9fd">int</span>{<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">4</span>, <span style="color:#bd93f9">5</span>}
+    b <span style="color:#ff79c6">:=</span> []<span style="color:#8be9fd">int</span>{<span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">200</span>}
+    <span style="color:#8be9fd;font-style:italic">copy</span>(a, b)
+    fmt.<span style="color:#50fa7b">Println</span>(a, b)
+    }
+</code></pre></div><p>运行结果：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang">[<span style="color:#bd93f9">100</span> <span style="color:#bd93f9">200</span> <span style="color:#bd93f9">3</span> <span style="color:#bd93f9">4</span> <span style="color:#bd93f9">5</span>]  [<span style="color:#bd93f9">100</span> <span style="color:#bd93f9">200</span>]
+</code></pre></div><h3 id="容器-map">容器 Map</h3>
+<ul>
+<li>key- value 表</li>
+<li>无序，散列表hash完成</li>
+<li>可使用内置函数delete(m, &ldquo;key&rdquo;), 不可以在map上使用cap()方法。</li>
+</ul>
+<h4 id="定义-1">定义</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#6272a4">//声明
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> m <span style="color:#8be9fd;font-style:italic">map</span>[<span style="color:#8be9fd">int</span>]<span style="color:#8be9fd">string</span>
+<span style="color:#6272a4">//声明并初始化
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> m <span style="color:#8be9fd;font-style:italic">map</span>[<span style="color:#8be9fd">int</span>]<span style="color:#8be9fd">string</span> {<span style="color:#bd93f9">1</span>;<span style="color:#f1fa8c">&#34;1&#34;</span>,<span style="color:#bd93f9">2</span>;<span style="color:#f1fa8c">&#39;2&#39;</span>}
+<span style="color:#6272a4">//通过make 创建
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> m1 = <span style="color:#8be9fd;font-style:italic">make</span>(<span style="color:#8be9fd;font-style:italic">map</span>[<span style="color:#8be9fd">int</span>]<span style="color:#8be9fd">string</span>, <span style="color:#bd93f9">10</span>)
+m2 = <span style="color:#8be9fd;font-style:italic">make</span>(<span style="color:#8be9fd;font-style:italic">map</span>[<span style="color:#8be9fd">int</span>]<span style="color:#8be9fd">string</span>, <span style="color:#bd93f9">10</span>)
+</code></pre></div><h4 id="调用-2">调用</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#6272a4">//增
+</span><span style="color:#6272a4"></span>m[<span style="color:#bd93f9">3</span>] = <span style="color:#f1fa8c">&#34;3&#34;</span>
+<span style="color:#6272a4">//删，删除操作，如果 key 不存在，不会出错
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">delete</span>(m, <span style="color:#f1fa8c">&#34;3&#34;</span>)
+<span style="color:#6272a4">//改
+</span><span style="color:#6272a4"></span>m[<span style="color:#bd93f9">1</span>] =<span style="color:#f1fa8c">&#39;2&#39;</span>
+<span style="color:#6272a4">//查
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">if</span> _, ok = m[<span style="color:#bd93f9">3</span>]; ok{
+ fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;find it&#34;</span>)
+}
+<span style="color:#6272a4">//长
+</span><span style="color:#6272a4"></span>len <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">len</span>(m)
+</code></pre></div><h3 id="管道-channel">管道 Channel</h3>
+<ul>
+<li>
+<p>看成管道， 可单双向使用， chan 定义</p>
+</li>
+<li>
+<p>无缓冲的与有缓冲channel有着重大差别，那就是一个是同步的 一个是非同步的。 比如</p>
+</li>
+</ul>
+<p>无缓冲chan：ch1:=make(chan int)</p>
+<p>有缓冲chan：ch2:=make(chan int,1)</p>
+<p>无缓冲： ch1&lt;-1 不仅仅是向 c1 通道放 1，而是一直要等有别的携程 &lt;-ch1 接手了这个参数，那么ch1&lt;-1才会继续下去，要不然就一直阻塞着。</p>
+<p>有缓冲： ch2&lt;-1 则不会阻塞，因为缓冲区大小是1(其实是缓冲大小为0)，只有当放第二个值的时候，第一个还没被人拿走，这时候才会阻塞。</p>
+<p>缓冲区是内部属性，并非类型构成要素。</p>
+<ul>
+<li>普通 channel 可以隐式转为只读channel或只写channel，反过来则不行</li>
+<li>内置函数 len() 返回未被读取的缓冲元素数量，使用内置函数 cap() 返回缓冲区大小</li>
+<li>使用内置函数 close() 进行关闭 chan，向已经关闭的 channel 发送数据会引发 panic 错误。</li>
+</ul>
+<h4 id="定义-2">定义</h4>
+<pre tabindex="0"><code class="language-goalng" data-lang="goalng">//使用chan 定义
+var aa chan int
+var aa chan string
+var aa chan map[int]string
+//make 定义 
+var aa = make(chan int) //无缓冲
+var aa = make(chan int, 10) //有缓冲
+//只读 
+var aa &lt;-chan int
+var aa = make(&lt;-chan int, 10)
+//只写
+var aa chan&lt;- int
+var aa = make(chan&lt;-int, 10) 
+</code></pre><h4 id="调用-3">调用</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#6272a4">//开
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> aa = <span style="color:#8be9fd;font-style:italic">make</span>(<span style="color:#8be9fd;font-style:italic">chan</span> <span style="color:#8be9fd">int</span>, <span style="color:#bd93f9">3</span>)
+<span style="color:#6272a4">//放
+</span><span style="color:#6272a4"></span>aa <span style="color:#ff79c6">&lt;-</span> <span style="color:#bd93f9">1</span>
+<span style="color:#6272a4">//关
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">close</span>(aa)
+</code></pre></div><h3 id="指针">指针</h3>
+<ul>
+<li>*（取值符） 来获取指针所指向的内容  ，  &amp;（取地址符）来获取该变量的指针。</li>
+<li>不可加减乘除，Go语言是不允许两个指针类型进行转换的</li>
+<li>空指针 nil</li>
+<li>unsafe.Pointer 类型用于表示任意类型的指针</li>
+</ul>
+<h4 id="定义-3">定义</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#6272a4">//使用var 进行
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> p <span style="color:#ff79c6">*</span><span style="color:#8be9fd">int</span>
+<span style="color:#6272a4">//使用：= 定义
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> str <span style="color:#8be9fd">string</span>
+p <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">&amp;</span>str
+<span style="color:#6272a4">//指针变量的指针
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> <span style="color:#ff79c6">**</span>p  <span style="color:#8be9fd">int</span>
+<span style="color:#6272a4">//time.Time （一个结构体）值的指针 
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> t <span style="color:#ff79c6">*</span>time.Time
+</code></pre></div><h3 id="结构体">结构体</h3>
+<ul>
+<li>
+<p>结构体是由一系列具有相同类型或不同类型的数据构成的数据集合。</p>
+</li>
+<li>
+<p><strong>struct 特点</strong>
+1、用来自定义复杂数据结构
+2、struct里面可以包含一个或多个字段（属性）
+3、struct类型可以定义方法，注意和函数的区分
+4、struct类型是值类型
+5、struct类型可以嵌套
+6、结构体是用户单独定义的类型，不能和其他类型进行强制转换
+7、Go中的struct没有构造函数，一般可以使用工厂模式来解决这个问题
+8、我们可以为struct中的每个字段，写上一个tag。这个tag可以通过反射的机制获取到，最常用的场景就是json序列化和反序列化
+9、访问结构体成员, 用 &ldquo;.&rdquo; 来连接，格式为：&ldquo;结构体.成员名&rdquo;</p>
+</li>
+</ul>
+<h4 id="定义-4">定义</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#6272a4">//全局或函数内定义类型
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">type</span> bight <span style="color:#8be9fd">int64</span>
+<span style="color:#6272a4">//定义新类型,不能同时嵌入某一类型和其指针类型(名字相同)
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">type</span> moreType <span style="color:#8be9fd;font-style:italic">struct</span>{
+	linux <span style="color:#8be9fd">string</span>
+	win <span style="color:#8be9fd">string</span>
+	debin <span style="color:#8be9fd">string</span>
+}
+<span style="color:#8be9fd;font-style:italic">type</span> lin stuct{
+	<span style="color:#ff79c6">*</span>linux
+}
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#6272a4">//声明struct结构的时候，在属性的右侧用小米点括起来的内容叫标签（Tag），在转换成其它数据格式的时候，会使用其中特定的字段作为键值。例如转成json格式
+</span><span style="color:#6272a4"></span>	user <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">&amp;</span>User{UserId: <span style="color:#bd93f9">1</span>, UserName: <span style="color:#f1fa8c">&#34;helloworld&#34;</span>}
+	json_user, _ <span style="color:#ff79c6">:=</span> json.<span style="color:#50fa7b">Marshal</span>(user)
+	fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;struct User echo : %v\n&#34;</span>, <span style="color:#8be9fd;font-style:italic">string</span>(json_user))
+
+	user_tag <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">&amp;</span>UserTag{UserId: <span style="color:#bd93f9">1</span>, UserName: <span style="color:#f1fa8c">&#34;helloworld&#34;</span>}
+	json_user_tag, _ <span style="color:#ff79c6">:=</span> json.<span style="color:#50fa7b">Marshal</span>(user_tag)
+	fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;struct UserTag echo : %v\n&#34;</span>, <span style="color:#8be9fd;font-style:italic">string</span>(json_user_tag))
+</code></pre></div><h3 id="函数">函数</h3>
+<h4 id="定义-5">定义</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#6272a4">//无参数
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">funName</span>(){
+}
+<span style="color:#6272a4">//有参数
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">funName</span>(x, y <span style="color:#8be9fd">int</span>){
+}
+<span style="color:#6272a4">//一返回值
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">funName</span>(x, y <span style="color:#8be9fd">int</span>) <span style="color:#8be9fd">int</span>{
+}
+<span style="color:#6272a4">//多返回
+</span><span style="color:#6272a4"></span>fun <span style="color:#50fa7b">funNmame</span>(x,y <span style="color:#8be9fd">int</span>)(ret <span style="color:#8be9fd">int</span>, err <span style="color:#8be9fd">error</span>){
+}
+<span style="color:#6272a4">//只有类型
+</span><span style="color:#6272a4"></span>fun <span style="color:#50fa7b">funNmame</span>(<span style="color:#8be9fd">int</span>， <span style="color:#8be9fd">int</span>)(<span style="color:#8be9fd">int</span>, <span style="color:#8be9fd">error</span>){
+}
+
+</code></pre></div><p>1、Go语言函数中的参数不支持默认值。</p>
+<p>2、无论是值传递，还是引用传递，传递给函数的都是变量的副本，不过，值传递是值的拷贝。引用传递是地址的拷贝，一般来说，地址拷贝更为高效。而值拷贝取决于拷贝的对象大小，对象越大，则性能越低。</p>
+<p>3、map、slice、chan、指针、interface默认以引用的方式传递。</p>
+<p>4、函数的可变参数只能有一个，且必须是最后一个。</p>
+<p>5、在参数赋值时可以不用用一个一个的赋值，可以直接传递一个数组或者切片，特别注意的是在参数后加上“…”即可。</p>
+<p>特殊函数</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#6272a4">//匿名函数
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> sum <span style="color:#8be9fd;font-style:italic">func</span>(<span style="color:#8be9fd">int</span>, <span style="color:#8be9fd">int</span>) <span style="color:#8be9fd">int</span> = <span style="color:#8be9fd;font-style:italic">func</span>(x, y <span style="color:#8be9fd">int</span>)<span style="color:#8be9fd">int</span>{<span style="color:#ff79c6">return</span> x<span style="color:#ff79c6">+</span>y}
+sum <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">func</span>(x, y <span style="color:#8be9fd">int</span>)<span style="color:#8be9fd">int</span>{<span style="color:#ff79c6">return</span> x<span style="color:#ff79c6">+</span>y}
+
+<span style="color:#6272a4">//递归函数
+</span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">factorial</span>(i <span style="color:#8be9fd">int</span>) <span style="color:#8be9fd">int</span> {
+    <span style="color:#ff79c6">if</span> i <span style="color:#ff79c6">&lt;=</span> <span style="color:#bd93f9">1</span> {
+        <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">1</span>
+    }
+    <span style="color:#ff79c6">return</span> i <span style="color:#ff79c6">*</span> <span style="color:#50fa7b">factorial</span>(i<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>)
+}
+</code></pre></div><h4 id="延时调用-defer-注意">延时调用 defer 注意</h4>
+<ul>
+<li>当defer被声明时，参数被实时解析</li>
+<li>defer执行顺序为先进后出。</li>
+<li>defer 可以读取有名返回值</li>
+</ul>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/2022/0316/" data-toggle="tooltip" data-placement="top" title="">&larr;
+                            上一篇</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/2019/1030/" data-toggle="tooltip" data-placement="top" title="Forsaken Mail创建临时邮箱系统| 手把手教程">下一篇
+                            &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+<div id="disqus-comment"></div>
+
+
+
+
+
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<div id="vcomments"></div>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'lU1ciVqNBif4ieLArWx54cg5-gzGzoHsz',
+        appKey: 'UmqnyO4n2oG7gDEtPRJs3152',
+        avatar: 'monsterid',
+        emojiCDN: '//i0.hdslb.com/bfs/emote/',
+        emojiMaps: {
+            "tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png",
+                  "tv_亲亲": "a8111ad55953ef5e3be3327ef94eb4a39d535d06.png",
+                  "tv_偷笑": "bb690d4107620f1c15cff29509db529a73aee261.png",
+                  "tv_再见": "180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png",
+                  "tv_冷漠": "b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png",
+                  "tv_发怒": "34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png",
+                  "tv_发财": "34db290afd2963723c6eb3c4560667db7253a21a.png",
+                  "tv_可爱": "9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png",
+                  "tv_吐血": "09dd16a7aa59b77baa1155d47484409624470c77.png",
+                  "tv_呆": "fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png",
+                  "tv_呕吐": "9f996894a39e282ccf5e66856af49483f81870f3.png",
+                  "tv_困": "241ee304e44c0af029adceb294399391e4737ef2.png",
+                  "tv_坏笑": "1f0b87f731a671079842116e0991c91c2c88645a.png",
+                  "tv_大佬": "093c1e2c490161aca397afc45573c877cdead616.png",
+                  "tv_大哭": "23269aeb35f99daee28dda129676f6e9ea87934f.png",
+                  "tv_委屈": "d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png",
+                  "tv_害羞": "a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png",
+                  "tv_尴尬": "7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png",
+                  "tv_微笑": "70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png",
+                  "tv_思考": "90cf159733e558137ed20aa04d09964436f618a1.png",
+                  "tv_惊吓": "0d15c7e2ee58e935adc6a7193ee042388adc22af.png",
+                  "tv_打脸": "56ab10b624063e966bfcb76ea5dc4794d87dfd47.png",
+                  "tv_抓狂": "fe31c08edad661d63762b04e17b8d5ae3c71a757.png",
+                  "tv_抠鼻": "c666f55e88d471e51bbd9fab9bb308110824a6eb.png",
+                  "tv_斜眼笑": "911f987aa8bc1bee12d52aafe62bc41ef4474e6c.png",
+                  "tv_无奈": "ea8ed89ee9878f2fece2dda0ea8a5dbfe21b5751.png",
+                  "tv_晕": "5443c22b4d07fb1907ccc610c8e6db254f2461b7.png",
+                  "tv_流汗": "cead1c351ab8d79e9f369605beb90148db0fbed3.png",
+                  "tv_流泪": "7e71cde7858f0cd50d74b0264aa26db612a8a167.png",
+                  "tv_流鼻血": "c32d39db2737f89b904ca32700d140a9241b0767.png",
+                  "tv_点赞": "f85c354995bd99e28fc76c869bfe42ba6438eff4.png",
+                  "tv_生气": "26702dcafdab5e8225b43ffd23c94ac1ff932654.png",
+                  "tv_生病": "8b0ec90e6b86771092a498c54f09fc94621c1900.png",
+                  "tv_疑问": "0793d949b18d7be716078349c202c15ff166f314.png",
+                  "tv_白眼": "c1d59f439e379ee50eef488bcb5e5378e5044ea4.png",
+                  "tv_皱眉": "72ccad6679fea0d14cce648b4d818e09b8ffea2d.png",
+                  "tv_目瞪口呆": "0b8cb81a68de5d5365212c99375e7ace3e7891b7.png",
+                  "tv_睡着": "8b196675b53af58264f383c50ad0945048290b33.png",
+                  "tv_笑哭": "1abc628f6d4f4caf9d0e7800878f4697abbc8273.png",
+                  "tv_腼腆": "89712c0d4af73e67f89e35cbc518420380a7f6f4.png",
+                  "tv_色": "61822c7e9aae5da76475e7892534545336b23a6f.png",
+                  "tv_调侃": "4bc022533ef31544ca0d72c12c808cf4a1cce3e3.png",
+                  "tv_调皮": "b9c41de8e82dd7a8515ae5e3cb63e898bf245186.png",
+                  "tv_鄙视": "6e72339f346a692a495b123174b49e4e8e781303.png",
+                  "tv_闭嘴": "c9e990da7f6e93975e25fd8b70e2e290aa4086ef.png",
+                  "tv_难过": "87f46748d3f142ebc6586ff58860d0e2fc8263ba.png",
+                  "tv_馋": "fc7e829b845c43c623c8b490ee3602b7f0e76a31.png",
+                  "tv_鬼脸": "0ffbbddf8a94d124ca2f54b360bbc04feb6bbfea.png",
+                  "tv_黑人问号": "45821a01f51bc867da9edbaa2e070410819a95b2.png",
+                  "tv_鼓掌": "1d21793f96ef4e6f48b23e53e3b9e42da833a0f6.png",
+        },
+    })
+</script>
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">目录</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">标签/分类</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/archlinux" title="archlinux">
+                            archlinux
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/docker" title="docker">
+                            docker
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/golang" title="golang">
+                            golang
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/how-to-do" title="how-to-do">
+                            how-to-do
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/phxpaxos" title="phxpaxos">
+                            phxpaxos
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95" title="共识算法">
+                            共识算法
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E7%AC%94%E8%AE%B0%E6%80%BB%E7%BB%93" title="笔记总结">
+                            笔记总结
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C" title="计算机网络">
+                            计算机网络
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>友链</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="https://www.cnblogs.com/wxiaote">Wxiaote 的笔记 </a></li>
+                        
+                        <li><a target="_blank" href="https://github.com/wnanqun">木南的博客</a></li>
+                        
+                        <li><a target="_blank" href="https://jimengkui.cn/">冰华</a></li>
+                        
+                        <li><a target="_blank" href="https://draveness.me/">面向信仰编程</a></li>
+                        
+                        <li><a target="_blank" href="https://fuckcloudnative.io/">云原生实验室</a></li>
+                        
+                        <li><a target="_blank" href="https://zhangguanzhang.github.io/%20">zhangguanzhang&#39;s Blog</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="SeaYuns Space" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:seayuns@163.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/seayuns">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; SeaYuns Space 2022
+                    <br>
+                    Seayun Theme</a> by 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=seayuns&repo=seayun&type=star&count=false" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.bootcdn.net/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

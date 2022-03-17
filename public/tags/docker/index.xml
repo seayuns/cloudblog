@@ -9,10 +9,10 @@
     <lastBuildDate>Tue, 29 Oct 2019 12:47:49 +0800</lastBuildDate><atom:link href="http://seayuns.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Forsaken Mail创建临时邮箱系统| 手把手教程</title>
-      <link>http://seayuns.github.io/post/2019/20191030/</link>
+      <link>http://seayuns.github.io/post/2019/1030/</link>
       <pubDate>Tue, 29 Oct 2019 12:47:49 +0800</pubDate>
       
-      <guid>http://seayuns.github.io/post/2019/20191030/</guid>
+      <guid>http://seayuns.github.io/post/2019/1030/</guid>
       <description>场景需求  不需要长时间使用的邮箱 需要大量创建临时邮箱 使用匿名邮箱  环境说明   ** Forsaken Mail是一个临时邮箱系统，可以供任何人接受邮件，即收即毁，支持自定义邮箱地址前缀，这里就说下Docker和NPM`两种安装教程，任选一种即可，有兴趣或者有需求的可以玩玩。
   **Github地址：**https://github.com/denghongcai/forsaken-mail
   开启25 跟3000端口  发工单开 25 跟 3000端口 宝塔面板放行25 跟 3000端口 运营商（xx云等）到安全组开启机可 国外VSP（如xx工等） 一般不用开  安装Docker环境 Docker 官网 官网安装教程

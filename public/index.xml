@@ -18,10 +18,10 @@
     
     <item>
       <title>archlinux 使用| 软件推荐</title>
-      <link>http://seayuns.github.io/post/2020/20201222/</link>
+      <link>http://seayuns.github.io/post/2020/1222/</link>
       <pubDate>Tue, 22 Dec 2020 08:26:14 +0800</pubDate>
       
-      <guid>http://seayuns.github.io/post/2020/20201222/</guid>
+      <guid>http://seayuns.github.io/post/2020/1222/</guid>
       <description>笔记软件
  Typora Obsidian  代码软件
  VScode Goland  会议软件
@@ -34,30 +34,39 @@
     
     <item>
       <title>archlinux 入坑|如何从零安装arclinux</title>
-      <link>http://seayuns.github.io/post/2020/20201116/</link>
+      <link>http://seayuns.github.io/post/2020/1116/</link>
       <pubDate>Mon, 16 Nov 2020 08:26:14 +0800</pubDate>
       
-      <guid>http://seayuns.github.io/post/2020/20201116/</guid>
+      <guid>http://seayuns.github.io/post/2020/1116/</guid>
       <description>安装系统之前 验证 验证安装包 $ gpg --keyserver-options auto-key-retrieve --verify archlinux-version-x86_64.iso.sig $ pacman-key -v archlinux-version-x86_64.iso.sig 设置键盘（一般不设置）  ls /usr/share/kbd/keymaps/**/*.map.gz # loadkeys de-latin1 判断机器是否是可以安装 Archlinux # ls /sys/firmware/efi/efivars //文件夹下是否有固件，有则是efi 安装前设置 网络设置 ##链接WIFI #iwctl工具 # ip link或 设备 device list station ... scanning station ... get-network # nmcli 第二个工具（nmtui）比较简单 系统分区 #分区 cfdisk 或者fdisk fdisk -l cfdisvk /dev/sda #格式化 mkfs.vfat mkfs.ext4 mkswap #挂载分区 mount /dev/sda1 /mnt mount /dev/sdb1 /mnt/root 分区推荐（来自官网）
    Mount point Partition Partition type Suggested size     [SWAP] /dev/*swap_partition* Linux swap More than 512 MiB   /mnt /dev/*root_partition* Linux Remainder of the device       Mount point Partition Partition type Suggested size     /mnt/boot or /mnt/efi /dev/*efi_system_partition* EFI system partition At least 260 MiB   [SWAP] /dev/*swap_partition* Linux swap More than 512 MiB   /mnt /dev/*root_partition* Linux x86-64 root (/) Remainder of the device    安装装机软件 pacstrap /mnt base base-devel linux linux-firmware networkmanager vim intel-ucode(amd-ucode) git 生成分区表 genfstab -U /mnt &amp;gt;&amp;gt; /mnt/etc/fstab 进入系统安装 arch-chroot /mnt/ 系统安装 语言设置 #编辑系统语言 vim /etc/locale.</description>
     </item>
     
     <item>
       <title>phxpaxos 项目的演示和实验</title>
-      <link>http://seayuns.github.io/post/2020/20200218/</link>
+      <link>http://seayuns.github.io/post/2020/0218/</link>
       <pubDate>Tue, 18 Feb 2020 19:34:26 +0800</pubDate>
       
-      <guid>http://seayuns.github.io/post/2020/20200218/</guid>
+      <guid>http://seayuns.github.io/post/2020/0218/</guid>
       <description>linux环境配置 helloworld@Vostro:~/Downloads/automake-1.14$ uname -a Linux Vostro 5.3.0-40-generic #32~18.04.1-Ubuntu SMP Mon Feb 3 14:05:59 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux helloworld@Vostro:~$ cat /etc/lsb-release DISTRIB_ID=Ubuntu DISTRIB_RELEASE=18.04 DISTRIB_CODENAME=bionic DISTRIB_DESCRIPTION=&amp;#34;Ubuntu 18.04.4 LTS&amp;#34; 下载 phpaxos 源码 git clone https://github.com/Tencent/phxpaxos.git --recursive 下载过程中, 可能会报这样的错, 在运行git clone命令时很容易出现这个错误，这是下载的包太大，网速慢超时报错。
 git clone https://github.com/Tencent/phxpaxos.git --recursive ... git clone error RPC failed:curl 56 GnuTLS recv error (-54):Error in the pull function fatar: The remote end hung up unexpectedly fatal : early EOF fatal : index-pack failed .</description>
     </item>
     
     <item>
+      <title>云招聘设置</title>
+      <link>http://seayuns.github.io/post/2019/1201/</link>
+      <pubDate>Sun, 01 Dec 2019 15:57:20 +0800</pubDate>
+      
+      <guid>http://seayuns.github.io/post/2019/1201/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>域名解析 | A记录 ，CNAME，MX，NS 你懂了吗</title>
-      <link>http://seayuns.github.io/post/2019/20191111/</link>
+      <link>http://seayuns.github.io/post/2019/1111/</link>
       <pubDate>Mon, 11 Nov 2019 10:23:57 +0800</pubDate>
       
-      <guid>http://seayuns.github.io/post/2019/20191111/</guid>
+      <guid>http://seayuns.github.io/post/2019/1111/</guid>
       <description>域名解析 | A记录 ，CNAME，MX，NS 你懂了吗 域名解析 什么是域名解析？域名解析就是国际域名或者国内域名以及中文域名等域名申请后做的到IP地址的转换过程。IP地址是网路上标识您站点的数字地址，为了简单好记，采用域名来代替ip地址标识站点地址。域名的解析工作由DNS服务器完成。
 如下图，百度 www.baidu.com 就是域名，解析出来的IP 14.216.177.30 这个过程就是域名解析。
  A 记录 A (Address) 记录是用来指定主机名（或域名）对应的IP地址记录。用户可以将该域名下的网站服务器指向到自己的web server上。同时也可以设置您域名的二级域名。又称IP指向，用户可以在此设置子域名并指向到自己的目标主机地址上，从而实现通过域名找到服务器。 说明： ·指向的目标主机地址类型只能使用IP地址； 1) 添加A记录 在“主机名”中填入子域的名字，“类型”为A，“IP地址/主机名”中填入web服务器的IP地址，点击“新增”按钮即可。 注：如果“主机名”一栏为空则表示对域名mydomain.com本身做指向。 2) 修改A记录 只要在“IP地址/主机名”一栏中将原来的IP地址直接修改为新IP地址，然后点击“修改”按钮即可。 3) 删除A记录 点击要删除的A记录后面对应的“删除”按钮即可。 4) 泛域名解析 即将该域名所有未指定的子域名都指向一个空间。 在“主机名”中填入*，“类型”为A，“IP地址/主机名”中填入web服务器的IP地址，点击“新增”按钮即可。 5) 负载均衡的实现： 负载均衡(Server Load Balancing，SLB)是指在一系列资源上面动态地分布网络负载。负载均衡可以减少网络拥塞，提高整体网络性能，提高自愈性，并确保企业关键性应用的可用性。 当相同子域名有多个目标地址时，表示轮循，可以达到负载均衡的目的，但需要虚拟主机服务商支持。
@@ -67,10 +76,10 @@ MX 记录 邮件交换记录。用于将以该域名为结尾的电子邮件指�
     
     <item>
       <title>Forsaken Mail创建临时邮箱系统| 手把手教程</title>
-      <link>http://seayuns.github.io/post/2019/20191030/</link>
+      <link>http://seayuns.github.io/post/2019/1030/</link>
       <pubDate>Tue, 29 Oct 2019 12:47:49 +0800</pubDate>
       
-      <guid>http://seayuns.github.io/post/2019/20191030/</guid>
+      <guid>http://seayuns.github.io/post/2019/1030/</guid>
       <description>场景需求  不需要长时间使用的邮箱 需要大量创建临时邮箱 使用匿名邮箱  环境说明   ** Forsaken Mail是一个临时邮箱系统，可以供任何人接受邮件，即收即毁，支持自定义邮箱地址前缀，这里就说下Docker和NPM`两种安装教程，任选一种即可，有兴趣或者有需求的可以玩玩。
   **Github地址：**https://github.com/denghongcai/forsaken-mail
   开启25 跟3000端口  发工单开 25 跟 3000端口 宝塔面板放行25 跟 3000端口 运营商（xx云等）到安全组开启机可 国外VSP（如xx工等） 一般不用开  安装Docker环境 Docker 官网 官网安装教程
@@ -79,10 +88,10 @@ MX 记录 邮件交换记录。用于将以该域名为结尾的电子邮件指�
     
     <item>
       <title>Golang 类型定义总结手册| 面试最基础</title>
-      <link>http://seayuns.github.io/post/2019/20191029/</link>
+      <link>http://seayuns.github.io/post/2019/1029/</link>
       <pubDate>Tue, 29 Jan 2019 10:22:34 +0800</pubDate>
       
-      <guid>http://seayuns.github.io/post/2019/20191029/</guid>
+      <guid>http://seayuns.github.io/post/2019/1029/</guid>
       <description>变量 var  关键字是 var ，定义后须被调用 支持多个同时定义 支持使用 := 缺省定义  变量定义（声明） //使用var 关键字 进行变量定义 ： var + 变量名 + 变量类型 //Var name type var aa int = 10 //var name 省略类型 var aa = 10 // 多个进行定义,也可省略类型 var Mon, Tues, Wed, Thur, Fri, Sat, Sun int var ( Monday int Tuesday int Wednesday int Thursday int Friday int Saturday int Sunday int ) // 使用 := 快捷定义，但&amp;#34;:=&amp;#34; 结构不能在函数外使用  var aa := 10 //多个定义  aa, bb ：=10, &amp;#39;10&amp;#39; //声明但可不使用  aa,_ := 10, &amp;#39;10&amp;#39; 变量调用 //变量调用分为 局部变量 和 全局变量 package main //import import ( &amp;#34;fmt&amp;#34; ) //全局变量定义 aa ss var ( aa = 3 ss = &amp;#34;kkk&amp;#34; ) //局部变量定义 func variableZeroValue() { var a int var s string //fmt.</description>
     </item>
     
@@ -93,6 +102,33 @@ MX 记录 邮件交换记录。用于将以该域名为结尾的电子邮件指�
       
       <guid>http://seayuns.github.io/about/</guid>
       <description>@import url(&#39;https://fonts.googleapis.com/css?family=Katibeh&amp;display=swap&#39;); .about-info { display: flex; justify-content: space-between; align-items: flex-start; } .about-info-left li { list-style-type: none; } .about-info-right { margin: .5em 1.25em; } .about-info-right img { width: 130px; } .about-info-right .left-ear, .about-info-right .left-hand, .about-info-right .right-ear, .about-info-right .right-hand { display: none; } @media only screen and (min-device-width: 320px) and (max-device-width: 480px) { .about-info { flex-direction: column-reverse; align-items: center; } .about-info-right { margin: auto auto 2em; display: flex; flex-direction: row; justify-content: center; align-items: center; } .</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://seayuns.github.io/categories/%E4%BA%91%E6%8B%9B%E8%81%98/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://seayuns.github.io/categories/%E4%BA%91%E6%8B%9B%E8%81%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://seayuns.github.io/post/2022/0316/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://seayuns.github.io/post/2022/0316/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://seayuns.github.io/post/2022/0317/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://seayuns.github.io/post/2022/0317/</guid>
+      <description></description>
     </item>
     
   </channel>

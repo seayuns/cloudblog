@@ -8,7 +8,7 @@
     <loc>http://seayuns.github.io/tags/archlinux/</loc>
     <lastmod>2020-12-22T08:26:14+08:00</lastmod>
   </url><url>
-    <loc>http://seayuns.github.io/post/2020/20201222/</loc>
+    <loc>http://seayuns.github.io/post/2020/1222/</loc>
     <lastmod>2020-12-22T08:26:14+08:00</lastmod>
   </url><url>
     <loc>http://seayuns.github.io/post/</loc>
@@ -20,25 +20,40 @@
     <loc>http://seayuns.github.io/tags/</loc>
     <lastmod>2020-12-22T08:26:14+08:00</lastmod>
   </url><url>
-    <loc>http://seayuns.github.io/post/2020/20201116/</loc>
+    <loc>http://seayuns.github.io/post/2020/1116/</loc>
     <lastmod>2020-11-16T08:26:14+08:00</lastmod>
   </url><url>
     <loc>http://seayuns.github.io/tags/phxpaxos/</loc>
     <lastmod>2020-02-18T19:34:26+08:00</lastmod>
   </url><url>
-    <loc>http://seayuns.github.io/post/2020/20200218/</loc>
+    <loc>http://seayuns.github.io/post/2020/0218/</loc>
     <lastmod>2020-02-18T19:34:26+08:00</lastmod>
   </url><url>
     <loc>http://seayuns.github.io/tags/%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2020-02-18T19:34:26+08:00</lastmod>
   </url><url>
+    <loc>http://seayuns.github.io/categories/</loc>
+    <lastmod>2019-12-01T15:57:20+08:00</lastmod>
+  </url><url>
+    <loc>http://seayuns.github.io/categories/</loc>
+    <lastmod>2019-12-01T15:57:20+08:00</lastmod>
+  </url><url>
+    <loc>http://seayuns.github.io/tags/how-to-do/</loc>
+    <lastmod>2019-12-01T15:57:20+08:00</lastmod>
+  </url><url>
+    <loc>http://seayuns.github.io/categories/%E4%BA%91%E6%8B%9B%E8%81%98/</loc>
+    <lastmod>2019-12-01T15:57:20+08:00</lastmod>
+  </url><url>
+    <loc>http://seayuns.github.io/post/2019/1201/</loc>
+    <lastmod>2019-12-01T15:57:20+08:00</lastmod>
+  </url><url>
     <loc>http://seayuns.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2019-11-11T10:23:57+08:00</lastmod>
   </url><url>
-    <loc>http://seayuns.github.io/post/2019/20191111/</loc>
+    <loc>http://seayuns.github.io/post/2019/1111/</loc>
     <lastmod>2019-11-11T10:23:57+08:00</lastmod>
   </url><url>
-    <loc>http://seayuns.github.io/post/2019/20191030/</loc>
+    <loc>http://seayuns.github.io/post/2019/1030/</loc>
     <lastmod>2019-10-29T12:47:49+08:00</lastmod>
   </url><url>
     <loc>http://seayuns.github.io/tags/docker/</loc>
@@ -47,7 +62,7 @@
     <loc>http://seayuns.github.io/tags/golang/</loc>
     <lastmod>2019-01-29T10:22:34+08:00</lastmod>
   </url><url>
-    <loc>http://seayuns.github.io/post/2019/20191029/</loc>
+    <loc>http://seayuns.github.io/post/2019/1029/</loc>
     <lastmod>2019-01-29T10:22:34+08:00</lastmod>
   </url><url>
     <loc>http://seayuns.github.io/tags/%E7%AC%94%E8%AE%B0%E6%80%BB%E7%BB%93/</loc>
@@ -56,6 +71,10 @@
     <loc>http://seayuns.github.io/about/</loc>
     <lastmod>2017-08-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://seayuns.github.io/categories/</loc>
+    <loc>http://seayuns.github.io/categories/%E4%BA%91%E6%8B%9B%E8%81%98/</loc>
+  </url><url>
+    <loc>http://seayuns.github.io/post/2022/0316/</loc>
+  </url><url>
+    <loc>http://seayuns.github.io/post/2022/0317/</loc>
   </url>
 </urlset>

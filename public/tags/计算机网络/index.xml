@@ -9,10 +9,10 @@
     <lastBuildDate>Mon, 11 Nov 2019 10:23:57 +0800</lastBuildDate><atom:link href="http://seayuns.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>域名解析 | A记录 ，CNAME，MX，NS 你懂了吗</title>
-      <link>http://seayuns.github.io/post/2019/20191111/</link>
+      <link>http://seayuns.github.io/post/2019/1111/</link>
       <pubDate>Mon, 11 Nov 2019 10:23:57 +0800</pubDate>
       
-      <guid>http://seayuns.github.io/post/2019/20191111/</guid>
+      <guid>http://seayuns.github.io/post/2019/1111/</guid>
       <description>域名解析 | A记录 ，CNAME，MX，NS 你懂了吗 域名解析 什么是域名解析？域名解析就是国际域名或者国内域名以及中文域名等域名申请后做的到IP地址的转换过程。IP地址是网路上标识您站点的数字地址，为了简单好记，采用域名来代替ip地址标识站点地址。域名的解析工作由DNS服务器完成。
 如下图，百度 www.baidu.com 就是域名，解析出来的IP 14.216.177.30 这个过程就是域名解析。
  A 记录 A (Address) 记录是用来指定主机名（或域名）对应的IP地址记录。用户可以将该域名下的网站服务器指向到自己的web server上。同时也可以设置您域名的二级域名。又称IP指向，用户可以在此设置子域名并指向到自己的目标主机地址上，从而实现通过域名找到服务器。 说明： ·指向的目标主机地址类型只能使用IP地址； 1) 添加A记录 在“主机名”中填入子域的名字，“类型”为A，“IP地址/主机名”中填入web服务器的IP地址，点击“新增”按钮即可。 注：如果“主机名”一栏为空则表示对域名mydomain.com本身做指向。 2) 修改A记录 只要在“IP地址/主机名”一栏中将原来的IP地址直接修改为新IP地址，然后点击“修改”按钮即可。 3) 删除A记录 点击要删除的A记录后面对应的“删除”按钮即可。 4) 泛域名解析 即将该域名所有未指定的子域名都指向一个空间。 在“主机名”中填入*，“类型”为A，“IP地址/主机名”中填入web服务器的IP地址，点击“新增”按钮即可。 5) 负载均衡的实现： 负载均衡(Server Load Balancing，SLB)是指在一系列资源上面动态地分布网络负载。负载均衡可以减少网络拥塞，提高整体网络性能，提高自愈性，并确保企业关键性应用的可用性。 当相同子域名有多个目标地址时，表示轮循，可以达到负载均衡的目的，但需要虚拟主机服务商支持。
