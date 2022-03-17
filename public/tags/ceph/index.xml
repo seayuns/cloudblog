@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ceph on SeaYuns Space</title>
+    <link>http://seayuns.github.io/tags/ceph/</link>
+    <description>Recent content in Ceph on SeaYuns Space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 16 Mar 2022 10:22:34 +0800</lastBuildDate><atom:link href="http://seayuns.github.io/tags/ceph/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ceph 系列 | cephadm 容器部署存储平台</title>
+      <link>http://seayuns.github.io/post/2022/0316/</link>
+      <pubDate>Wed, 16 Mar 2022 10:22:34 +0800</pubDate>
+      
+      <guid>http://seayuns.github.io/post/2022/0316/</guid>
+      <description>暂时还未填坑
+ 部署MON节点 部署OSD节点 添加其他服务2 参考文章 ceph 官网文档</description>
+    </item>
+    
+    <item>
+      <title>Ceph 系列 | 手动部署传统Ceph服务 （以12版本安装为例子）</title>
+      <link>http://seayuns.github.io/post/2022/0215/</link>
+      <pubDate>Tue, 15 Feb 2022 10:22:34 +0800</pubDate>
+      
+      <guid>http://seayuns.github.io/post/2022/0215/</guid>
+      <description>暂时还未填坑
+ 部署MON节点 部署OSD节点 添加其他服务2 参考文章 ceph 官网文档</description>
+    </item>
+    
+  </channel>
+</rss>

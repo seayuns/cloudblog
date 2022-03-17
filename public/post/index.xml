@@ -6,7 +6,27 @@
     <description>Recent content in Posts on SeaYuns Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 22 Dec 2020 08:26:14 +0800</lastBuildDate><atom:link href="http://seayuns.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Mar 2022 10:22:34 +0800</lastBuildDate><atom:link href="http://seayuns.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ceph 系列 | cephadm 容器部署存储平台</title>
+      <link>http://seayuns.github.io/post/2022/0316/</link>
+      <pubDate>Wed, 16 Mar 2022 10:22:34 +0800</pubDate>
+      
+      <guid>http://seayuns.github.io/post/2022/0316/</guid>
+      <description>暂时还未填坑
+ 部署MON节点 部署OSD节点 添加其他服务2 参考文章 ceph 官网文档</description>
+    </item>
+    
+    <item>
+      <title>Ceph 系列 | 手动部署传统Ceph服务 （以12版本安装为例子）</title>
+      <link>http://seayuns.github.io/post/2022/0215/</link>
+      <pubDate>Tue, 15 Feb 2022 10:22:34 +0800</pubDate>
+      
+      <guid>http://seayuns.github.io/post/2022/0215/</guid>
+      <description>暂时还未填坑
+ 部署MON节点 部署OSD节点 添加其他服务2 参考文章 ceph 官网文档</description>
+    </item>
+    
     <item>
       <title>archlinux 使用| 软件推荐</title>
       <link>http://seayuns.github.io/post/2020/1222/</link>
@@ -84,24 +104,6 @@ MX 记录 邮件交换记录。用于将以该域名为结尾的电子邮件指�
       
       <guid>http://seayuns.github.io/post/2019/1029/</guid>
       <description>变量 var  关键字是 var ，定义后须被调用 支持多个同时定义 支持使用 := 缺省定义  变量定义（声明） //使用var 关键字 进行变量定义 ： var + 变量名 + 变量类型 //Var name type var aa int = 10 //var name 省略类型 var aa = 10 // 多个进行定义,也可省略类型 var Mon, Tues, Wed, Thur, Fri, Sat, Sun int var ( Monday int Tuesday int Wednesday int Thursday int Friday int Saturday int Sunday int ) // 使用 := 快捷定义，但&amp;#34;:=&amp;#34; 结构不能在函数外使用  var aa := 10 //多个定义  aa, bb ：=10, &amp;#39;10&amp;#39; //声明但可不使用  aa,_ := 10, &amp;#39;10&amp;#39; 变量调用 //变量调用分为 局部变量 和 全局变量 package main //import import ( &amp;#34;fmt&amp;#34; ) //全局变量定义 aa ss var ( aa = 3 ss = &amp;#34;kkk&amp;#34; ) //局部变量定义 func variableZeroValue() { var a int var s string //fmt.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://seayuns.github.io/post/2022/0316/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://seayuns.github.io/post/2022/0316/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://seayuns.github.io/post/2022/0317/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://seayuns.github.io/post/2022/0317/</guid>
-      <description></description>
     </item>
     
   </channel>

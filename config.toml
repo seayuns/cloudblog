@@ -24,6 +24,7 @@ home = ["HTML", "RSS", "Algolia"]
   image_404 = "img/404-bg.jpg"
   title_404 = "你来到了没有知识的荒原 :("
   omit_categories = false
+  omit_categories_display = false
 
 
   # valine
@@ -46,8 +47,8 @@ home = ["HTML", "RSS", "Algolia"]
 
   # Sidebar settings
   sidebar_about_description = "Software Developer, Cepher, Gopher and Rustacean"
-  sidebar_avatar = "img/seayuns.png"      # use absolute URL, seeing it's used in both `/` and `/about/`
-  
+  sidebar_avatar = "img/me.png"      # use absolute URL, seeing it's used in both `/` and `/about/`
+
 
   # Baidu Analytics
   #ba_track_id = ""
@@ -115,27 +116,31 @@ home = ["HTML", "RSS", "Algolia"]
   [[params.friend_link]]
   title = "zhangguanzhang's Blog"
   href="https://zhangguanzhang.github.io/ "
-  [[params.bookmark_link]]
-  title =  "Martin Fowler"
-  href =  "https://martinfowler.com"
-  [[params.bookmark_link]]
-  title = "ServiceMesher"
-  href =  "http://www.servicemesher.com"
-  [[params.bookmark_link]]
-  title =  "Pxhere"
-  href = "https://pxhere.com"
-  [[params.bookmark_link]]
-  title = "unsplash"
-  href = "https://unsplash.com"
+  # [[params.bookmark_link]]
+  # title =  "Martin Fowler"
+  # href =  "https://martinfowler.com"
+  # [[params.bookmark_link]]
+  # title = "ServiceMesher"
+  # href =  "http://www.servicemesher.com"
+  # [[params.bookmark_link]]
+  # title =  "Pxhere"
+  # href = "https://pxhere.com"
+  # [[params.bookmark_link]]
+  # title = "unsplash"
+  # href = "https://unsplash.com"
   
-  
-
-  #[[params.addtional_menus]]
-  #title =  "书籍"
-  #href =  "/books/"
-  #[[params.addtional_menus]]
-  #title =  "日积月累"
-  #href =  "/archive/"
+  [[params.addtional_menus]]
+  title =  "存储系列"
+  href =  "/categories/存储系列"
+  [[params.addtional_menus]]
+  title =  "容器系列"
+  href =  "/categories/容器系列"
+  [[params.addtional_menus]]
+  title =  "云招聘"
+  href =  "/categories/云招聘"
+  [[params.addtional_menus]]
+  title =  "日积月累"
+  href =  "/archive/"
   [[params.addtional_menus]]
   title =  "关于博主"
   href =  "/about/"
