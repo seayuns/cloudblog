@@ -15,9 +15,9 @@
     
 
     
-    <meta name="title" content="" />
-    <meta property="og:title" content="" />
-    <meta property="twitter:title" content="" />
+    <meta name="title" content="云招聘" />
+    <meta property="og:title" content="云招聘" />
+    <meta property="twitter:title" content="云招聘" />
     
 
     
@@ -34,7 +34,7 @@
     <meta name="keyword"  content="Cepher, Gopher, 云存储, 云原生, Kubernetes">
     <link rel="shortcut icon" href="/img/favicon/favicon.ico">
 
-    <title>Seayuns 博客 | Seayuns Blog</title>
+    <title>云招聘-Seayuns 博客 | Seayuns Blog</title>
 
     <link rel="canonical" href="/categories/%E4%BA%91%E6%8B%9B%E8%81%98/">
 
@@ -151,171 +151,14 @@
 
 
 
-
-<style type="text/css">
-    header.intro-header {
-        background-image: url('/img/sea.png')
-    }
-</style>
-
-<header class="intro-header" >
-
+<header class="intro-header" style="background-image: url('/img/sea.png')">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <div class="tags">
-                        
-                    </div>
-                    <h1></h1>
-                    <h2 class="subheading"></h2>
-                    <span class="meta">
-                        
-                            Posted by 
-                            
-                                    SeaYuns Space
-                             
-                            on 
-                            Monday, January 1, 0001
-                            
-                                <span id="/categories/%E4%BA%91%E6%8B%9B%E8%81%98/" class="leancloud_visitors meta_data_item" data-flag-title="">
-    <span class="post-meta-item-icon">
-      <span class="octicon octicon-eye"></span> 
-    </span>
-    <i class="fa fa-eye"></i>
-    <span class="old-visitors-count" style="display: none;"></span>
-    <span class="leancloud-visitors-count"></span>
-</span>
-
-
-
-<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-
-<script>
-	AV.initialize("D1gWQvE5vPp4Yc4n9GTCq09h-gzGzoHsz", "WNer6LYjOjljHe0mG2K5AMu1");
-</script>
-
-<script type="text/javascript">
-function showTime(Counter) {
-    var query = new AV.Query(Counter);
-    var entries = [];
-    var $visitors = $(".leancloud_visitors");
-
-    $visitors.each(function() {
-        entries.push($(this).attr("id").trim());
-    });
-
-    query.containedIn('url', entries);
-    query.find()
-        .done(function(results) {
-            var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-            var OLD_COUNT_CONTAINER_REF = '.old-visitors-count';
-
-            
-            
-            
-            
-
-            for (var i = 0; i < results.length; i++) {
-                var item = results[i];
-                var url = item.get('url');
-                var time = item.get('time');
-                var element = document.getElementById(url);
-
-                $(element).find(COUNT_CONTAINER_REF).text(time);
-            }
-            for (var i = 0; i < entries.length; i++) {
-                var url = entries[i];
-                var element = document.getElementById(url);
-                var countSpan = $(element).find(COUNT_CONTAINER_REF);
-                if (countSpan.text() == '') {
-                    var oldCountSpan = $(element).find(OLD_COUNT_CONTAINER_REF).text();
-                    if(oldCountSpan!=''){
-                        countSpan.text(0+parseInt(oldCountSpan));
-                    }else{
-                        countSpan.text(0);          
-                    }
-                }
-            }
-        })
-        .fail(function(object, error) {
-            console.log("Error: " + error.code + " " + error.message);
-        });
-}
-
-function addCount(Counter) {
-    var $visitors = $(".leancloud_visitors");
-    var url = $visitors.attr('id').trim();
-    var title = $visitors.attr('data-flag-title').trim();
-    var query = new AV.Query(Counter);
-
-    query.equalTo("url", url);
-    query.find({
-        success: function(results) {
-            if (results.length > 0) {
-                var counter = results[0];
-                counter.fetchWhenSave(true);
-                counter.increment("time");
-                counter.save(null, {
-                    success: function(counter) {
-                        var $element = $(document.getElementById(url));
-                        $element.find('.leancloud-visitors-count').text(counter.get('time'));
-                    },
-                    error: function(counter, error) {
-                        console.log('Failed to save Visitor num, with error message: ' + error.message);
-                    }
-                });
-            } else {
-                var newcounter = new Counter();
-                 
-                var acl = new AV.ACL();
-                acl.setPublicReadAccess(true);
-                acl.setPublicWriteAccess(true);
-                newcounter.setACL(acl);
-                 
-                newcounter.set("title", title);
-                newcounter.set("url", url);
-                var OLD_COUNT_CONTAINER_REF = '.old-visitors-count';
-                var $element = $(document.getElementById(url));
-                var oldCountSpan = $element.find(OLD_COUNT_CONTAINER_REF).text();
-                if(oldCountSpan!=''){
-                    newcounter.set("time", parseInt(oldCountSpan)+1);
-                }else{
- 	                    newcounter.set("time",  1);
-                }
-                newcounter.save(null, {
-                    success: function(newcounter) {
-                        var $element = $(document.getElementById(url));
-                        $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-                    },
-                    error: function(newcounter, error) {
-                        console.log('Failed to create');
-                    }
-                });
-            }
-        },
-        error: function(error) {
-            console.log('Error:' + error.code + " " + error.message);
-        }
-    });
-}
-$(function() {
-    var Counter = AV.Object.extend("Counter");
-    
-    
-    if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-    } else {
-        showTime(Counter);
-    }
-});
-</script>
-
-                            
-                            
-                            
-                            
-                    </span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading">
+                    <h1>SeaYuns Space </h1>
+                    
+		    <span class="subheading">Traveling in the sea, looking up at the white clouds</span>
                 </div>
             </div>
         </div>
@@ -324,215 +167,203 @@ $(function() {
 
 
 
-
-<article>
-    <div class="container">
-        <div class="row">
-
-            
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
-
-                
-                
-
-                
-
-                <hr>
-                <ul class="pager">
-                    
-                    <li class="previous">
-                        <a href="/categories/%E5%AD%98%E5%82%A8%E7%B3%BB%E5%88%97/" data-toggle="tooltip" data-placement="top" title="">&larr;
-                            上一篇</a>
-                    </li>
-                    
-                    
-                </ul>
-                
-<div id="disqus-comment"></div>
-
-
-
-
-
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-<div id="vcomments"></div>
-<script>
-    new Valine({
-        el: '#vcomments',
-        appId: 'lU1ciVqNBif4ieLArWx54cg5-gzGzoHsz',
-        appKey: 'UmqnyO4n2oG7gDEtPRJs3152',
-        avatar: 'monsterid',
-        placeholder: '雁留声羽人留痕，试试留下评论或者建议',
-        emojiCDN: '//i0.hdslb.com/bfs/emote/',
-        emojiMaps: {
-            "tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png",
-                  "tv_亲亲": "a8111ad55953ef5e3be3327ef94eb4a39d535d06.png",
-                  "tv_偷笑": "bb690d4107620f1c15cff29509db529a73aee261.png",
-                  "tv_再见": "180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png",
-                  "tv_冷漠": "b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png",
-                  "tv_发怒": "34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png",
-                  "tv_发财": "34db290afd2963723c6eb3c4560667db7253a21a.png",
-                  "tv_可爱": "9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png",
-                  "tv_吐血": "09dd16a7aa59b77baa1155d47484409624470c77.png",
-                  "tv_呆": "fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png",
-                  "tv_呕吐": "9f996894a39e282ccf5e66856af49483f81870f3.png",
-                  "tv_困": "241ee304e44c0af029adceb294399391e4737ef2.png",
-                  "tv_坏笑": "1f0b87f731a671079842116e0991c91c2c88645a.png",
-                  "tv_大佬": "093c1e2c490161aca397afc45573c877cdead616.png",
-                  "tv_大哭": "23269aeb35f99daee28dda129676f6e9ea87934f.png",
-                  "tv_委屈": "d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png",
-                  "tv_害羞": "a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png",
-                  "tv_尴尬": "7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png",
-                  "tv_微笑": "70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png",
-                  "tv_思考": "90cf159733e558137ed20aa04d09964436f618a1.png",
-                  "tv_惊吓": "0d15c7e2ee58e935adc6a7193ee042388adc22af.png",
-                  "tv_打脸": "56ab10b624063e966bfcb76ea5dc4794d87dfd47.png",
-                  "tv_抓狂": "fe31c08edad661d63762b04e17b8d5ae3c71a757.png",
-                  "tv_抠鼻": "c666f55e88d471e51bbd9fab9bb308110824a6eb.png",
-                  "tv_斜眼笑": "911f987aa8bc1bee12d52aafe62bc41ef4474e6c.png",
-                  "tv_无奈": "ea8ed89ee9878f2fece2dda0ea8a5dbfe21b5751.png",
-                  "tv_晕": "5443c22b4d07fb1907ccc610c8e6db254f2461b7.png",
-                  "tv_流汗": "cead1c351ab8d79e9f369605beb90148db0fbed3.png",
-                  "tv_流泪": "7e71cde7858f0cd50d74b0264aa26db612a8a167.png",
-                  "tv_流鼻血": "c32d39db2737f89b904ca32700d140a9241b0767.png",
-                  "tv_点赞": "f85c354995bd99e28fc76c869bfe42ba6438eff4.png",
-                  "tv_生气": "26702dcafdab5e8225b43ffd23c94ac1ff932654.png",
-                  "tv_生病": "8b0ec90e6b86771092a498c54f09fc94621c1900.png",
-                  "tv_疑问": "0793d949b18d7be716078349c202c15ff166f314.png",
-                  "tv_白眼": "c1d59f439e379ee50eef488bcb5e5378e5044ea4.png",
-                  "tv_皱眉": "72ccad6679fea0d14cce648b4d818e09b8ffea2d.png",
-                  "tv_目瞪口呆": "0b8cb81a68de5d5365212c99375e7ace3e7891b7.png",
-                  "tv_睡着": "8b196675b53af58264f383c50ad0945048290b33.png",
-                  "tv_笑哭": "1abc628f6d4f4caf9d0e7800878f4697abbc8273.png",
-                  "tv_腼腆": "89712c0d4af73e67f89e35cbc518420380a7f6f4.png",
-                  "tv_色": "61822c7e9aae5da76475e7892534545336b23a6f.png",
-                  "tv_调侃": "4bc022533ef31544ca0d72c12c808cf4a1cce3e3.png",
-                  "tv_调皮": "b9c41de8e82dd7a8515ae5e3cb63e898bf245186.png",
-                  "tv_鄙视": "6e72339f346a692a495b123174b49e4e8e781303.png",
-                  "tv_闭嘴": "c9e990da7f6e93975e25fd8b70e2e290aa4086ef.png",
-                  "tv_难过": "87f46748d3f142ebc6586ff58860d0e2fc8263ba.png",
-                  "tv_馋": "fc7e829b845c43c623c8b490ee3602b7f0e76a31.png",
-                  "tv_鬼脸": "0ffbbddf8a94d124ca2f54b360bbc04feb6bbfea.png",
-                  "tv_黑人问号": "45821a01f51bc867da9edbaa2e070410819a95b2.png",
-                  "tv_鼓掌": "1d21793f96ef4e6f48b23e53e3b9e42da833a0f6.png",
-        },
-    })
-</script>
-
-            </div>
-
-            
-            
-            <div class="
-                col-lg-2 col-lg-offset-0
-                visible-lg-block
-                sidebar-container
-                catalog-container">
-                <div class="side-catalog">
-                    <hr class="hidden-sm hidden-xs">
-                    <h5>
-                        <a class="catalog-toggle" href="#">目录</a>
-                    </h5>
-                    <ul class="catalog-body"></ul>
-                </div>
-            </div>
+  
+<div class="container">
+    <div class="row">
+        
+        
+   	    <div class="
+            col-lg-8 col-lg-offset-1
+            col-md-8 col-md-offset-1
+            col-sm-12
+            col-xs-12
+            post-container
+        ">
             
 
+<div class="post-preview">
+    <a href="http://seayuns.github.io/post/2019/1201/">
+        <h2 class="post-title">
+            云招聘设置
+        </h2>
+	
+        <div class="post-content-preview">
+	
             
-            <div class="
-                col-lg-11 col-lg-offset-1
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                
-                
-                <section>
-                    <hr class="hidden-sm hidden-xs">
-                    <h5><a href="/tags/">标签/分类</a></h5>
-                    <div class="tags">
-                        
-                        
-                        
-                        <a href="/tags/archlinux" title="archlinux">
-                            archlinux
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/ceph" title="ceph">
-                            ceph
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/docker" title="docker">
-                            docker
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/golang" title="golang">
-                            golang
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/phxpaxos" title="phxpaxos">
-                            phxpaxos
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95" title="共识算法">
-                            共识算法
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/%E7%AC%94%E8%AE%B0%E6%80%BB%E7%BB%93" title="笔记总结">
-                            笔记总结
-                        </a>
-                        
-                        
-                        
-                        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C" title="计算机网络">
-                            计算机网络
-                        </a>
-                        
-                        
-                    </div>
-                </section>
-                
-
-                
-                
-                <section>
-                    <hr>
-                    <h5>友链</h5>
-                    <ul class="list-inline">
-                        
-                        <li><a target="_blank" href="https://www.cnblogs.com/wxiaote">Wxiaote 的笔记 </a></li>
-                        
-                        <li><a target="_blank" href="https://github.com/wnanqun">木南的博客</a></li>
-                        
-                        <li><a target="_blank" href="https://jimengkui.cn/">冰华</a></li>
-                        
-                        <li><a target="_blank" href="https://draveness.me/">面向信仰编程</a></li>
-                        
-                        <li><a target="_blank" href="https://fuckcloudnative.io/">云原生实验室</a></li>
-                        
-                        <li><a target="_blank" href="https://zhangguanzhang.github.io/%20">zhangguanzhang&#39;s Blog</a></li>
-                        
-                    </ul>
-                </section>
-                
-            </div>
+       
         </div>
-    </div>
-</article>
+    </a>
+    <p class="post-meta">
+    
+        Posted byseayuns  Sunday, December 1, 2019
+        
+        
+    
+    </p>
+
+</div>
+<hr>
+
+
+            
+
+
+
+       	</div>
+        
+
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5>分类/标签</h5>
+        <div class="tags">
+            
+            
+               
+                    <a href="/tags/archlinux" title="archlinux">
+                        archlinux
+                    </a>
+               
+            
+               
+                    <a href="/tags/ceph" title="ceph">
+                        ceph
+                    </a>
+               
+            
+               
+                    <a href="/tags/docker" title="docker">
+                        docker
+                    </a>
+               
+            
+               
+                    <a href="/tags/golang" title="golang">
+                        golang
+                    </a>
+               
+            
+               
+                    <a href="/tags/phxpaxos" title="phxpaxos">
+                        phxpaxos
+                    </a>
+               
+            
+               
+                    <a href="/tags/%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95" title="共识算法">
+                        共识算法
+                    </a>
+               
+            
+               
+                    <a href="/tags/%E7%AC%94%E8%AE%B0%E6%80%BB%E7%BB%93" title="笔记总结">
+                        笔记总结
+                    </a>
+               
+            
+               
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C" title="计算机网络">
+                        计算机网络
+                    </a>
+               
+            
+        </div>
+    </section>
+    
+
+    
+	
+    <section class="visible-md visible-lg">
+	<hr><h5><a href="/about">关于博主 </a></h5>
+        <div class="short-about">
+            
+            <a href="/about">
+               <img src="/img/me.png" alt="avatar" style="cursor: pointer" />
+            </a>
+            
+            
+                <p>Software Developer, Cepher, Gopher and Rustacean</p>
+            
+           
+           <ul class="list-inline">
+               
+               <li>
+                   <a href='/categories/%E4%BA%91%E6%8B%9B%E8%81%98/index.xml' rel="alternate" type="application/rss+xml" title="SeaYuns Space" >
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+               
+               
+               
+               
+               
+               <li>
+                   <a target="_blank" href="https://github.com/seayuns">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+               
+               
+               
+               
+            
+            
+               
+               
+               
+               
+                </ul>
+            </div>
+    </section>
+	
+    
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5>友链</h5>
+        <ul class="list-inline">
+            
+            <li><a target="_blank" href="https://www.cnblogs.com/wxiaote">Wxiaote 的笔记 </a></li>
+            
+            <li><a target="_blank" href="https://github.com/wnanqun">木南的博客</a></li>
+            
+            <li><a target="_blank" href="https://jimengkui.cn/">冰华</a></li>
+            
+            <li><a target="_blank" href="https://draveness.me/">面向信仰编程</a></li>
+            
+            <li><a target="_blank" href="https://fuckcloudnative.io/">云原生实验室</a></li>
+            
+            <li><a target="_blank" href="https://zhangguanzhang.github.io/%20">zhangguanzhang&#39;s Blog</a></li>
+            
+        </ul>
+    </section>
+    
+
+    
+    
+</div>
+
+	</div>
+</div>
+
 
 
 
@@ -544,7 +375,7 @@ $(function() {
                 <ul class="list-inline text-center">
                    
                    <li>
-                       <a href='' rel="alternate" type="application/rss+xml" title="SeaYuns Space" >
+                       <a href='/categories/%E4%BA%91%E6%8B%9B%E8%81%98/index.xml' rel="alternate" type="application/rss+xml" title="SeaYuns Space" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
