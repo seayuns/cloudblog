@@ -25,6 +25,9 @@ home = ["HTML", "RSS", "Algolia"]
   omit_categories = false
   omit_categories_display = false
 
+  #评论区设置
+  #livere
+  # livere_comment = true
   # valine
   valine_comment = true 
   leancloud_app_id_for_valine = "lU1ciVqNBif4ieLArWx54cg5-gzGzoHsz"
@@ -32,8 +35,10 @@ home = ["HTML", "RSS", "Algolia"]
 
   # leancloud storage for page view counter
   page_view_conter = true 
-  leancloud_app_id = "D1gWQvE5vPp4Yc4n9GTCq09h-gzGzoHsz"
-  leancloud_app_key = "WNer6LYjOjljHe0mG2K5AMu1"
+  # leancloud_app_id = "D1gWQvE5vPp4Yc4n9GTCq09h-gzGzoHsz"
+  # leancloud_app_key = "WNer6LYjOjljHe0mG2K5AMu1"
+  # leancloud_app_id = "lU1ciVqNBif4ieLArWx54cg5-gzGzoHsz"
+  # leancloud_app_key = "UmqnyO4n2oG7gDEtPRJs3152"
   
   # algolia 设置
   algolia_search = false
