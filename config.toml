@@ -30,15 +30,11 @@ home = ["HTML", "RSS", "Algolia"]
   # livere_comment = true
   # valine
   valine_comment = true 
-  leancloud_app_id_for_valine = "lU1ciVqNBif4ieLArWx54cg5-gzGzoHsz"
-  leancloud_app_key_for_valine = "UmqnyO4n2oG7gDEtPRJs3152" 
 
   # leancloud storage for page view counter
   page_view_conter = true 
-  # leancloud_app_id = "D1gWQvE5vPp4Yc4n9GTCq09h-gzGzoHsz"
-  # leancloud_app_key = "WNer6LYjOjljHe0mG2K5AMu1"
-  # leancloud_app_id = "lU1ciVqNBif4ieLArWx54cg5-gzGzoHsz"
-  # leancloud_app_key = "UmqnyO4n2oG7gDEtPRJs3152"
+  leancloud_app_id_for_valine = "lU1ciVqNBif4ieLArWx54cg5-gzGzoHsz"
+  leancloud_app_key_for_valine = "UmqnyO4n2oG7gDEtPRJs3152" 
   
   # algolia 设置
   algolia_search = false
@@ -65,7 +61,8 @@ home = ["HTML", "RSS", "Algolia"]
   featured_tags = true
   # featured_condition_size = 2
   friends = true
-  bookmarks = false
+  bookmarks = true
+  tools = true
   about_me = true
   categories = true
   archive = true
@@ -115,19 +112,24 @@ home = ["HTML", "RSS", "Algolia"]
   [[params.friend_link]]
   title = "zhangguanzhang's Blog"
   href="https://zhangguanzhang.github.io/ "
-  # [[params.bookmark_link]]
-  # title =  "Martin Fowler"
-  # href =  "https://martinfowler.com"
-  # [[params.bookmark_link]]
-  # title = "ServiceMesher"
-  # href =  "http://www.servicemesher.com"
-  # [[params.bookmark_link]]
-  # title =  "Pxhere"
-  # href = "https://pxhere.com"
-  # [[params.bookmark_link]]
-  # title = "unsplash"
-  # href = "https://unsplash.com"
-  
+  [[params.bookmark_link]]
+  title =  "Martin Fowler"
+  href =  "https://martinfowler.com"
+  [[params.bookmark_link]]
+  title = "ServiceMesher"
+  href =  "http://www.servicemesher.com"
+  [[params.bookmark_link]]
+  title =  "Pxhere"
+  href = "https://pxhere.com"
+  [[params.bookmark_link]]
+  title = "unsplash"
+  href = "https://unsplash.com"
+  [[params.tool_link]]
+  title = "moerats"
+  href = "https://www.moerats.com/Aria2/#!/status"
+  [[params.tool_link]]
+  title = "fastmock"
+  href = "https://www.fastmock.site/#/login"
   [[params.addtional_menus]]
   title =  "存储系列"
   href =  "/categories/存储系列"
