@@ -1,7 +1,7 @@
 # [**Seayuns Cloud Blog**](https://github.com/seayuns) 个人博客 [![Build Status](https://travis-ci.org/seayuns/cloudBlog.svg?branch=master)](https://travis-ci.org/seayuns/cloudBlog)
 
 
-地址： **[http://seayuns.github.io](https://seayuns.github.io)**
+地址： **[https://seayuns.github.io](https://seayuns.github.io)**
 
 使用 Markdown 书写，用 [Hugo](https://gohugo.io/) 生成静态网页，用 Travis IC 部署到 [seayuns.github.io](https://github.com/seayuns/seayuns.github.io) 。
 
