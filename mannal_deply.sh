@@ -1,5 +1,6 @@
 #!/bin/bash
 dir=$(cd $(dirname $0); pwd)
+current=`date "+%Y_%m_%d %H:%M:%S"`
 echo -e "\033[0;32m This Shell Will Prapare to  updateing to GitHub...\033[0m"
 echo -e "has to update you theme, public, and local cloud blog"
 
@@ -20,7 +21,7 @@ cd ${dir}/public
 git add .
 
 # Commit changes.
-msg="rebuilding site by the mannal shell on  `date`"
+msg="rebuilding site by the mannal shell on ${current}"
 if [ $# -eq 1 ]
   then msg="$1"
 fi
@@ -35,6 +36,6 @@ echo -e "\033[0;21m Update the local cloudblog to github..."
 cd ${dir}
 
 git add . --all
-git commit -m "rebuilding the local cloudblog and commit by mannal shell on `date`"
+git commit -m "rebuilding the local cloudblog and commit by mannal shell on ${current}"
 git push
 
