@@ -1,11 +1,9 @@
 #!/bin/bash
-
 dir=$(cd $(dirname $0); pwd)
-
 echo -e "\033[0;32m This Shell Will Prapare to  updateing to GitHub...\033[0m"
+echo -e "has to update you theme, public, and local cloud blog"
 
 echo -e "\033[0;21m Update the local theme form github..."
-
 cd ${dir}/themes
 git pull 
 
